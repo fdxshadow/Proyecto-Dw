@@ -50,17 +50,28 @@
   </head>
 
   <body>
-      <nav>
+      
+      <div id="wrapper">
 
-   <div class="navbar navbar-default" style="margin-bottom: 0;">   
+   <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">   
   <div class="container-fluid">
     <div class="navbar-header">
+    <div class="row">
+    <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+      <div class="col-md-3 hidden-sm hidden-xs">                    
       <a class="navbar-brand" href="#">
         <img alt="Brand" src="/images/logo.jpeg" height="80">
       </a>
-      <div class="navbar-text"><h1>Sistema de Egresados</h1></div>
-  </div>
+      </div>
 
+      <div class="navbar-text col-md-8 col-sm-12 col-xs-12"><h1 align="center">Sistema de Egresados</h1></div>
+  </div>
+  </div>
   </div>    
   <div class="navbar-default sidebar" role="navigation" style="margin-top: 0;">
                 <div class="sidebar-nav navbar-collapse">
@@ -142,7 +153,9 @@
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/jquery.min.js"></script>
+    <script src="/js/dependencies/sb-admin-2.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/metisMenu.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
