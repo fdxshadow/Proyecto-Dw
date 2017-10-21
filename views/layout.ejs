@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+        <!-- Viewport mobile tag for sensible mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+        <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
    
 
@@ -39,65 +42,75 @@
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
 
-    <!--STYLES-->
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/font-awesome.min.css">
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/metisMenu.min.css">
-    <link rel="stylesheet" href="/styles/morris.css">
-    <link rel="stylesheet" href="/styles/sb-admin-2.min.css">
-    <!--STYLES END-->
-  </head>
+        <!--STYLES-->
+        <link rel="stylesheet" href="/styles/bootstrap.min.css">
+        <link rel="stylesheet" href="/styles/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/importer.css">
+        <link rel="stylesheet" href="/styles/metisMenu.min.css">
+        <link rel="stylesheet" href="/styles/morris.css">
+        <link rel="stylesheet" href="/styles/sb-admin-2.min.css">
+        <!--STYLES END-->
 
-  <body>
+
+        <!--SCRIPTS-->
+        <script src="/js/dependencies/sails.io.js"></script>
+        <script src="/js/dependencies/jquery.min.js"></script>
+        <script src="/js/dependencies/sb-admin-2.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/metisMenu.min.js"></script>
+        <!--SCRIPTS END-->
+
+
+    </head>
+
+    <body>
       
-      <div id="wrapper">
-
-   <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">   
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <div class="row">
-      <div class="col-md-3 hidden-sm hidden-xs">                    
-      <a class="navbar-brand" href="#">
-        <img alt="Brand" src="/images/logo.jpeg" height="80">
-      </a>
-      </div>
-
-      <div class="navbar-text col-md-8 col-sm-12 col-xs-12">
-        <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-      <h1 align="center">Sistema Egresados</h1></div>
-  </div>
-  </div>
-  </div>    
-  <div class="navbar-default sidebar" role="navigation" style="margin-top: 0;">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">                        
-                        <li>
-                            <a href="#"><i class="fa fa-universal-access fa-fw"></i>Empleos</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i>Egresados</a> 
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-institution fa-fw"></i>Empleadores</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Reportes</a>
-                        </li>
-                    </ul>    
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">   
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="row">
+                    <div class="col-md-3 hidden-sm hidden-xs">                    
+                        <a class="navbar-brand" href="#">
+                            <img alt="Brand" src="/images/logo.jpeg" height="80">
+                        </a>
+                    </div>
+                    <div class="navbar-text col-md-8 col-sm-12 col-xs-12">
+                        <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                    <h1 align="center">Sistema Egresados</h1>
+                    </div>
                 </div>
+            </div>
+        </div>    
+        <div class="navbar-default sidebar" role="navigation" style="margin-top: 0;">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">                        
+                    <li>
+                        <a href="/empleos"><i class="fa fa-universal-access fa-fw"></i>Empleos</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-users fa-fw"></i>Egresados</a> 
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-institution fa-fw"></i>Empleadores</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Reportes</a>
+                    </li>
+                </ul>    
+            </div>
                 <!-- /.sidebar-collapse -->
-      </div>
-  </nav>
+        </div>
+    </nav>
 
-  <div id="page-wrapper">
-            <div class="row"> <%- body %></div>
-  </div>
+    <div id="page-wrapper">
+        <div class="row"> <%- body %></div>
+    </div>
 
 
 
@@ -151,12 +164,5 @@
 
     -->
 
-    <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/jquery.min.js"></script>
-    <script src="/js/dependencies/sb-admin-2.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/metisMenu.min.js"></script>
-    <!--SCRIPTS END-->
-  </body>
+    </body>
 </html>
