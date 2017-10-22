@@ -36,8 +36,11 @@ module.exports.routes = {
     view: 'homepage',
   },
 
-  '/empleos': {
-    view: 'empleos'
+  '/addEmpleo': {
+    view: 'addEmpleo'
+  },
+  '/listaEmpleos': {
+    view: 'listaEmpleos'
   },
 
   /***************************************************************************

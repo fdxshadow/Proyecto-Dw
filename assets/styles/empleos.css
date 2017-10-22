@@ -1,0 +1,22 @@
+.headerTablaModal{
+    background-color: #f1b144 !important; 
+    color:white !important;
+}
+
+.texto-naranjo-negrita{
+    color: #ce953d !important; 
+    font-weight:bold !important;
+}
+.texto-limon-negrita{
+    color:#a5a909 !important; 
+    font-weight:bold !important;
+}
+
+.textoNaranjoInfo{
+    color: #b36511 !important;
+}
+
+.headerTablaEmpleados{
+    background-color: #617a92 !important; 
+    color:white !important;
+}
