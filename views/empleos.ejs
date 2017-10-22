@@ -1,10 +1,13 @@
 
+
+
+
   <script>
     $(document).ready(function () {
 
       //$('#ingresar').hide();
       $('#listaComuna').hide();
-      $('#inputComuna').hide();
+      $('#inputComuna').show();
 
     });
 
@@ -20,6 +23,26 @@
         $('#inputComuna').show();
       }
     }
+
+    $(document).ready(function () {
+
+
+
+      $('#fechaInicio' ).datepicker({
+        language: "es",   
+        format: "dd/mm/yyyy"
+        });
+
+      $('#fechaTermino').datepicker({
+        language: "es",   
+        format: "dd/mm/yyyy"
+        });
+
+    });
+
+
+
+
   </script>
 
 
@@ -34,56 +57,56 @@
 
     <div class="panel-heading" style="text-align:center">FORMULARIO INGRESO EMPLEO</div>
     <div class="panel-body">
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="col-lg-2 control-label">Nombre</label>
-          <div class="col-lg-10">
+      <form class="form-horizontal" role="form" action="/">
+        <div class="form-group in-line">
+          <label class="col-lg-2 control-label hidden-xs">Nombre</label>
+          <div class="col-lg-5">
             <input type="text" class="form-control" id="nombre" name "nombre" placeholder="Ingrese nombre" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-lg-2 control-label">Rut</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" id="rut" name "rut" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese RUT" required>
+          <label class="col-lg-2 control-label hidden-xs">Rut</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="rut" name "rut" pattern="\d{3,8}-[\d|kK]{1}" placeholder="123456789-0" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label">Empresa</label>
-          <div class="col-lg-10">
+          <label class="col-lg-2 control-label hidden-xs">Empresa</label>
+          <div class="col-lg-5">
             <select id="empresa" name "empresa" class="form-control" aria-describedby="basic4" required>
                   <option value="">Seleccione una empresa</option>
                   <option value="1">Empresa 1</option>
                   <option value="2">Empresa 2</option>
                   <option value="3">Empresa 3</option>
-
                 </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label">Cargo</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" id="cargo" name "cargo" placeholder="Ingrese su cargo" required>
+          <label class="col-lg-2 control-label hidden-xs">Cargo</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="cargo" name="cargo" placeholder="Ingrese su cargo" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label">Fecha inicio</label>
-          <div class="col-lg-10">
-            <input type="date" class="form-control" id="fechaInicio" name "fechaInicio" placeholder="Ingrese fecha inicio" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-lg-2 control-label">Fecha termino</label>
-          <div class="col-lg-10">
-            <input type="date" class="form-control" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino" required>
+          <label class="col-lg-2 control-label hidden-xs">Fecha inicio</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="fechaInicio" name="fechaInicio" placeholder="Ingrese fecha inicio" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="col-lg-2 control-label">Rango Sueldo</label>
-          <div class="col-lg-10">
+          <label class="col-lg-2 control-label hidden-xs">Fecha termino</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label hidden-xs">Rango Sueldo</label>
+          <div class="col-lg-5">
             <select id="sueldo" name="sueldo" class="form-control" aria-describedby="basic4" required>
                   <option value="">Seleccione sueldo</option>
                   <option value="1">menos de $500.000</option>
@@ -93,10 +116,10 @@
           </div>
         </div>
 
+        <!-- LISTA DE PAISES-->
         <div class="form-group">
-
-          <label class="col-lg-2 control-label">Pais:</label>
-          <div class="col-lg-10">
+          <label class="col-lg-2 control-label hidden-xs">Pais:</label>
+          <div class="col-lg-5">
             <select id="pais" name="pais" class="form-control" aria-describedby="basic4" onchange="getPais()" required>
                   <option value="">Seleccione un país</option>
                   <option value="1">Alemania</option>
@@ -113,23 +136,26 @@
                   <option value="12">Peru</option>
                 </select>
           </div>
-
         </div>
 
+        <!-- SELECCION DE CIUDAD-->
         <div class="form-group">
-          <label for="ejemplo_password_3" class="col-lg-2 control-label">Comuna:</label>
-          <div class="col-lg-10" id="inputComuna">
-            <input type="text" class="form-control" id="inputComunaSelect" name="comunaInput" placeholder="Escriba comuna">
+          <label for="ejemplo_password_3" class="col-lg-2 control-label hidden-xs">Ciudad:</label>
+          <div class="col-lg-5" id="inputComuna">
+            <input type="text" class="form-control" id="inputComunaSelect" name="comunaInput" placeholder="Escriba ciudad">
           </div>
-          <div class="col-lg-10" id="listaComuna">
+          <div class="col-lg-5" id="listaComuna">
             <select id="listaComunaSelect" name="comunaLista" class="form-control" aria-describedby="basic4">
                   <option value="">Seleccione una comuna</option>
                   <option value="1">Quillota</option>
                   <option value="2">Valparaiso</option>
+                  <option value="3">Limache</option>
+                  <option value="4">Viña Del mar</option>
+                  <option value="5">Santiago</option>
                 </select>
           </div>
         </div>
-
+        
         <div class="form-group">
           <div class="col-sm-offset-2 col-lg-10">
             <button type="submit" class="btn btn-success">Enviar</button>
