@@ -83,6 +83,47 @@ function validarCampos() {
             confirmButtonText: 'Entendido'
         })
         return false;
+    }else{
+        
+            rut = rut.replace('-','')
+    rut = rut.replace(/\./g,'')
+    var suma = 0;
+    var caracteres = "1234567890kK";
+    var contador = 0;    
+    for (var i=0; i < rut.length; i++){
+        u = rut.substring(i, i + 1);
+        if (caracteres.indexOf(u) != -1)
+        contador ++;
+    }
+    if ( contador==0 ) { return false }
+    
+    var rut1 = rut.substring(0,rut.length-1)
+    var drut = rut.substring( rut.length-1 )
+    var dvr = '0';
+    var mul = 2;
+    
+    for (i= rut1.length -1 ; i >= 0; i--) {
+        suma = suma + rut1.charAt(i) * mul
+                if (mul == 7)   mul = 2
+                else    mul++
+    }
+    res = suma % 11
+    if (res==1)     dvr = 'k'
+                else if (res==0) dvr = '0'
+    else {
+        dvi = 11-res
+        dvr = dvi + ""
+    }
+    if ( dvr != drut.toLowerCase() ) {
+        swal({
+            //title: 'Error!',
+            text: 'Rut inválido ',
+            type: 'warning',
+            confirmButtonText: 'Entendido',
+        })
+     return false; }
+    else { return true; }
+
     }
 
     if (empresa == 0) {
