@@ -19,3 +19,4 @@ diente empleo (empresa, la ubicación, fecha de inicio,
 término, cargo, supervisor, y sueldo). La que se res-
 cata de la base datos según los campos ingresados
 anteriormente en éste módulo. 
+
