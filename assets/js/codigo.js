@@ -157,6 +157,30 @@ function validarCampos() {
         return false;
     }
 
+    if (fechaTermino != null) {
+        //alert('ERROR: El campo fechaInicio no debe ir vacío ');
+        var fechasInicio = fechaInicio.split("/");
+        var fechasTermino = fechaTermino.split("/");
+
+        var inicio = fechasInicio[2].toString() + '-' + fechasInicio[1].toString() + '-' + fechasInicio[0].toString();
+        var final = fechasTermino[2].toString() + '-' + fechasTermino[1].toString() + '-' + fechasTermino[0].toString();
+
+        var inicioDate = new Date(inicio);
+        var finDate = new Date(final);
+
+        if (inicioDate >= finDate) {
+            console.log("Fecha mala");
+            swal({
+                //title: 'Error!',
+                text: 'La fecha de termino debe ser mayor a la inicial ',
+                type: 'warning',
+                confirmButtonText: 'Entendido'
+            })
+            return false;
+        }
+        console.log("aqui");
+    }
+
     if (sueldo == null || sueldo == 0) {
         //alert('ERROR: El campo sueldo no debe ir vacío ');
         swal({
