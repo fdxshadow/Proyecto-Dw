@@ -14,8 +14,7 @@ que exista en la base de datos.
 Estos datos están fuera del alcance del módulo 
 Empleos.
 
-Se entrega la lista de los empleados con su correspo-
-diente empleo (empresa, la ubicación, fecha de inicio,
+Se entrega la lista de los empleados con su correspodiente empleo (empresa, la ubicación, fecha de inicio,
 término, cargo, supervisor, y sueldo). La que se res-
 cata de la base datos según los campos ingresados
 anteriormente en éste módulo. 
