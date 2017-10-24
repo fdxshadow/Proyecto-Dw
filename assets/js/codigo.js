@@ -1,24 +1,22 @@
 $(document).ready(function () {
 
     $('#listaComuna').hide();
-    $('#inputComuna').hide();
+    $('#inputComuna').show();
     $('#myModal').on('show.bs.modal', function (evnt) {
 
         var nombre = $(evnt.relatedTarget).val();
         $('#empleadoSelect').text(nombre);
-
-
     });
 
-    $('#fechaInicio').datepicker({
+
+
+
+    $('.texto').datepicker({
         language: "es",
         format: "dd/mm/yyyy"
     });
 
-    $('#fechaTermino').datepicker({
-        language: "es",
-        format: "dd/mm/yyyy"
-    });
+
 
 });
 
@@ -44,7 +42,6 @@ function cambiarPanel() {
         var url = "/listaEmpleos";
         $(location).attr('href', url);
     }
-
 }
 
 function validarCampos() {
@@ -53,6 +50,7 @@ function validarCampos() {
     var empresa = document.getElementById('empresa').value;
     var cargo = document.getElementById('cargo').value;
     var fechaInicio = document.getElementById('fechaInicio').value;
+    var fechaTermino = document.getElementById('fechaTermino').value;
     var sueldo = document.getElementById('sueldo').value;
     var pais = document.getElementById('pais').value;
     var inputComunaSelect = document.getElementById('inputComunaSelect').value;
