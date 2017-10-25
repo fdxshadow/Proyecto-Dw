@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script type="text/javascript" src="/js/codigo.js"></script>
+
+</head>
+
+
+<body>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-title">
+                        <strong>Empleos del egresado: <span id="empleadoSelect"></span> </strong>
+                    </div>
+                </div>
+                <div class="modal-body" data-backdrop="static" data-keyboard="false">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped ">
+                            <thead class="thead-default">
+                                <tr class="headerTablaModal">
+                                    <th>N°</th>
+                                    <th>Empresa</th>
+                                    <th>Pais</th>
+                                    <th>Comuna</th>
+                                    <th>Fecha inicio</th>
+                                    <th>Fecha termino</th>
+                                    <th>Cargo</th>
+                                    <th>Supervisor</th>
+                                    <th>Rango sueldo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Disico</td>
+                                    <td>Chile</td>
+                                    <td>Valparaíso</td>
+                                    <td class="texto-naranjo-negrita">10/10/2012</td>
+                                    <td class="texto-naranjo-negrita">15/02/2017</td>
+                                    <td>Desarrollador web</td>
+                                    <td>Juan Roman - 18.444.333-1</td>
+                                    <td>Sobre $1.000.000 </td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Cencosud</td>
+                                    <td>Chile</td>
+                                    <td>Maipu</td>
+                                    <td class="texto-naranjo-negrita">25/04/2018</td>
+                                    <td class="texto-limon-negrita">Trabajo actual</td>
+                                    <td>Jefe area base de datos</td>
+                                    <td>Cristian Quezada - 11.222.343-1</td>
+
+                                    <td>Sobre $1.000.000 </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    <i class="fa fa-undo" aria-hidden="true"></i> Volver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <strong><i class="fa fa-info-circle"></i> En esta sección podra ver empleos de los egresados o ingresar un empleo.
+    Para ver alguna, seleccione una opción.</strong>
+        </div>
+        <br/><br/>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4" style="text-align:center">
+
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">OPCIÓN</span>
+                <select onchange="cambiarPanel()" id="opcion" name "empresa" class="form-control" aria-describedby="basic-addon1" required>
+                <option value="2">Ver empleos</option>
+                <option value="1">Ingreso empleo</option>
+        </select>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+
+            <div class="panel-heading" style="text-align:center">Lista de egresados y empleos</div>
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped ">
+                        <thead class="thead-default">
+                            <tr class="headerTablaEmpleados">
+                                <th>N°</th>
+                                <th>Nombre</th>
+                                <th>Rut</th>
+                                <th>Carrera</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Ivette León Faune</td>
+                                <td>11.234.567-3</td>
+                                <td>Ingeniería Civil Informática</td>
+                                <td>
+                                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
+                                        <span class="fa fa-eye"></span>
+                                    </button>
+                                    <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                        <span class="fa fa-pencil-square-o"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
+                                        <span class="fa fa-ban"></span>
+                                    </button>                                                                        
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Cristian Rojas</td>
+                                <td>18.455.432-5</td>
+                                <td>Ingeniería Informática</td>
+                                <td>
+                                    <button value="Cristian Rojas" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
+                                        <span class="fa fa-eye"></span>
+                                        </button>
+                                        <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                        <span class="fa fa-pencil-square-o"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
+                                        <span class="fa fa-ban"></span>
+                                    </button>                                                                                           
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Juan Ignacio Parra</td>
+                                <td>18.111.432-5</td>
+                                <td>Ingeniería Civil Informática</td>
+                                <td>
+                                    <button value="Juan Ignacio Parra" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
+                                        <span class="fa fa-eye"></span>
+                                        </button>
+                                        <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                        <span class="fa fa-pencil-square-o"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
+                                        <span class="fa fa-ban"></span>
+                                    </button>                                                                                          
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
