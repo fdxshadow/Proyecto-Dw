@@ -32,7 +32,11 @@ $(document).ready(function() {
           mul = 2;
       for(i = (value.length - 3) ; i >= 0; i--) {
         sum = sum + value.charAt(i) * mul;
-        mul = (mul == 7) ? 2 : mul++;
+        if(mul == 7){
+          mul = 2;
+        } else {
+          mul++;
+        }
       }
       digito  = 11 - (sum % 11);
       if(digito == 11){
