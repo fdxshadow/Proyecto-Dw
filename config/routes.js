@@ -33,8 +33,16 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'homepage'
+    view: 'homepage',
   },
+
+  '/addEmpleo': {
+    view: 'addEmpleo'
+  },
+  '/listaEmpleos': {
+    view: 'listaEmpleos'
+  },
+
   '/egresados': {
     view: 'egresados'
   }
