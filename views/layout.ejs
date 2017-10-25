@@ -8,9 +8,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
 
-
+    <title>Sistema Egresados </title>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,26 +18,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <!--
-        Stylesheets and Preprocessors
-        ==============================
 
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/bootstrap.min.css">
@@ -46,6 +26,7 @@
     <link rel="stylesheet" href="/styles/datepicker.min.css">
     <link rel="stylesheet" href="/styles/empleos.css">
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
+
     <link rel="stylesheet" href="/styles/fontawesome-stars.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <link rel="stylesheet" href="/styles/metisMenu.min.css">
@@ -130,7 +111,7 @@
                         
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-institution fa-fw"></i>Empleadores</a>
+                            <a href="/Empresa"><i class="fa fa-institution fa-fw"></i>Empleadores</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>Reportes</a>
@@ -138,7 +119,6 @@
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
-
             </div>
         </nav>
 
@@ -150,6 +130,21 @@
     </div>
 </body>
 
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery-3.2.1.js"></script>
+    <script src="/js/dependencies/jquery.min.js"></script>
+    <script src="/js/dependencies/sb-admin-2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.barrating.min.js"></script>
+    <script src="/js/metisMenu.min.js"></script>
+    <!--SCRIPTS END-->
+    
+  </body>
 
 </html>
 

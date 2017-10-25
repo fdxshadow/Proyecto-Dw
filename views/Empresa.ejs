@@ -1,0 +1,128 @@
+<div class="container-fluid">
+  <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Empresas</h3>
+  </div>
+  <div class="panel-body">
+  	<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar nueva Empresa</button>	
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nombre Empresa</th>
+          <th>RUT</th>
+          <th>Rubro Empresa</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      	<% _.each(companys, function(company) { %>
+			<tr>
+				<td><%= company.name %></td>
+				<td><%= company.rut %></td>
+				<td><%= company.item %></td>
+				<td>
+				  <a class="btn btn-success" href="/Ver/<%=company.id%>">Ver</a>
+				  <a class="btn btn-primary" href="/Editar/<%=company.id%>">Editar</a>
+					<a class="btn btn-danger" href="/Eliminar/<%=company.id%>">Eliminar</a>
+
+				</td>
+			</tr>
+			<% }) %>	
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+  <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Agregar nueva Empresa</h4>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/Agregar">
+        	<div class="form-group">
+	        	<label>Nombre Empresa</label>
+	        	<input type="text" class="form-control" name="name">
+	        </div>	
+	        <div class="form-group">	
+	        	<label>RUT</label>
+	        	<input type="text" class="form-control" name="rut">
+	        </div>
+	        <label>Rubro Empresa</label>
+	        <div class="form-group">
+              <select class="form-control" name="item">
+                <option>Agricultura, Ganadería, Caza y Silvicultura </option>
+                <option>Pesca </option>
+                <option>Explotación de Minas y Canteras </option>
+                <option>Industrias Manufactureras No Metálicas</option>
+                <option>Industrias Manufactureras Metálicas </option>
+                <option>Suministro de Electricidad, Gas y Agua </option>
+                <option>Construcción </option>
+                <option>Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos </option>
+                <option>Hoteles y Restaurantes </option>
+                <option>Transporte, Almacenamiento y Comunicaciones </option>
+                <option>Intermediación Financiera </option>
+                <option>Actividades Inmobiliarias, Empresariales y de Alquiler </option>
+                <option>Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria </option>
+                <option>Enseñanza </option>
+                <option>Servicios Sociales y de Salud </option>
+                <option>Otras Actividades de Servicios Comunitarias, Sociales y Personales </option>
+                <option>Consejo de Administración de Edificios y Condominios </option>
+                <option>Organizaciones y Órganos Extraterritoriales </option>
+              </select>
+              <br>
+              <!--
+	        	  <input type="text" class="form-control" name="email">
+	        	-->
+            </div>
+            <label>Prioridad</label>
+            <div class="form-group">
+              <select class="form-control" id="nota" name="priority">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+              <br>
+              <!--
+	        	  <input type="text" class="form-control" name="email">
+	        	-->
+            </div>
+            <label>Pais</label>
+            <div class="form-group">
+              <select class="form-control" name="country">
+                <option>Chile</option>
+                <option>Argentina</option>
+                <option>Peru</option>
+                <option>España</option>
+                <option>EEUU</option>
+              </select>
+              <br>
+              <!--
+	        	  <input type="text" class="form-control" name="email">
+	        	-->
+            </div>
+            <label>Especialidad</label>
+            <div class="form-group">
+                <textarea class="form-control" rows="5" name="specialty"></textarea>
+            </div>
+	        <div class="form-group" align="right">	
+            <input type="submit" class="btn btn-primary" name="" value="Guardar">
+            <button type="button" data-dismiss="modal" class="btn btn-danger" >Cerrar</button>
+          </div>
+        	</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>    
+
+
+</div>
