@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-primary" style="margin-top:15px;">
   	<div class="panel-heading">Lista de egresados</div>
   	<div class="panel-body">
-  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar egresado</button>
+  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar egresado</button>	
   		<table class="table table-striped">
       		<thead>
         		<tr>
@@ -17,17 +17,17 @@
 					<td>Rojas</td>
 					<td>cristian.rojas@alumnos.uv.cl</td>
 					<td>
-						<button class="btn btn-primary">Editar</button>
-						<button class="btn btn-danger">Eliminar</button>
-					</td>
-				</tr>
-				<tr>
-					<td>Ivette</td>
-					<td>León</td>
-					<td>ivette.leon@alumnos.uv.cl</td>
-					<td>
-						<button class="btn btn-primary">Editar</button>
-						<button class="btn btn-danger">Eliminar</button>
+						<div class="row" align="center">
+							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<i class="fa fa-search fa-lg"  data-toggle="modal" data-target="#detalle"></i>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<i class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal"></i>
+							</div>
+							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+								<i class="fa fa-trash-o fa-lg"></i>
+							</div>
+						</div>
 					</td>
 				</tr>
 			</tbody>
@@ -46,124 +46,129 @@
       		<div class="modal-body">
         		<form method="POST" id="formulario-egresados">
         			<div class="container-fluid">
+					    
 					    <div class="col-lg-4 form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text"
-                       class="form-control"
-                       name="nombre" id="nombre"
-                       data-validation="required custom"
-                       data-validation-regexp="^([a-zA-Z\s]+)$"
-                       data-validation-help="Ingrese solo letras y espacios.">
+				            <label for="nombre">Nombre</label>
+			                <input type="text"
+			                        class="form-control"
+			                        name="nombre" id="nombre"
+			                        data-validation="required custom"
+			                        data-validation-regexp="^([a-zA-Z\s]+)$"
+			                        data-validation-help="Ingrese solo letras y espacios.">
+		 				</div>
+					    
+					    <div class="col-lg-4 form-group">
+			                <label for="apellido">Apellido</label>
+			                <input type="text"
+			                       	class="form-control"
+			                       	name="apellido"
+			                       	id="apellido"
+			                       	data-validation="required custom"
+			                       	data-validation-regexp="^([a-zA-Z\s]+)$"
+			                       	data-validation-help="Ingrese solo letras y espacios.">
 					    </div>
-					    <div class="col-lg-4 form-group">
-                <label for="apellido">Apellido</label>
-                <input type="text"
-                       class="form-control"
-                       name="apellido"
-                       id="apellido"
-                       data-validation="required custom"
-                       data-validation-regexp="^([a-zA-Z\s]+)$"
-                       data-validation-help="Ingrese solo letras y espacios.">
 
-					    </div>
 					    <div class="col-lg-4 form-group">
-                <label for="rut">Rut</label>
-                <input type="text"
-                       class="form-control"
-                       name="rut"
-                       id="rut"
-                       data-validation="required rutFormato rutDigitoVerificador"
-                       data-validation-help="Ingrese RUT sin digitos y con guión.">
-					    </div>
-					  </div>
+			                <label for="rut">Rut</label>
+			                <input type="text"
+			                       	class="form-control"
+			                       	name="rut"
+			                       	id="rut"
+			                       	data-validation="required rutFormato rutDigitoVerificador"
+			                        data-validation-help="Ingrese RUT sin digitos y con guión.">      
+						</div>
+
+					</div>
 					<div class="container-fluid">
 					    <div class="col-lg-4">
+					 
+					 
 					        <div class="form-group">
 					        	<label for="ingreso">Año Ingreso</label>
 					        	<input type="date"
-                           class="form-control"
-                           name="ingreso"
-                           id="ingreso"
-                           required="required">
-				        	</div>
-
-					    </div>
+                           			class="form-control"
+                           			name="ingreso"
+                           			id="ingreso"
+                           			required="required">
+				        	</div>					 
+					 
+					     </div>
 					    <div class="col-lg-4">
-
-
+					 
+					 
 					        <div class="form-group">
 					        	<label for="egreso">Año Egreso</label>
 					        	<input type="date" class="form-control" name="egreso" id="egreso" required="required" novalidate>
-                  </div>
-
-
+	                  		</div>				 
+					         
 					    </div>
 					    <div class="col-lg-4">
-
+					 
 					        <div class="form-group">
 					        	<label for="titulacion">Año Titulación</label>
 					        	<input type="date" class="form-control" name="titulacion" id="titulacion">
 				        	</div>
-
+					         
 					    </div>
 					</div>
 					<div class="container-fluid">
 					    <div class="col-lg-4">
-
+					 
 					        <div class="form-group">
 					        	<label for="carrera">Carrera</label>
 					        	<select class="form-control"
-                            name="carrera"
-                            id="carrera"
-                            data-validation="required"
-                            data-validation-help="Escoga una alternativa.">
-                      <option value="">Elegir</option>
+			                            name="carrera"
+			                            id="carrera"
+			                            data-validation="required"
+			                            data-validation-help="Escoga una alternativa.">
+			                      	<option value="">Elegir</option>
 					        		<option value="1">Ejecución</option>
 					        		<option value="2">Informática</option>
-					        		<option value="3">Civil</option>
+				        			<option value="3">Civil</option>
 					        	</select>
-				        	</div>
-
+				        	</div>					 
+					 
 					    </div>
 					    <div class="col-lg-4">
-
+					 
 					        <div class="form-group">
 					        	<label for="postgrado">Postgrado</label>
 					        	<select class="form-control" name="postgrado" id="postgrado">
-                      <option value="">Ninguno</option>
+					        		<option value="">Ninguno</option>
 					        		<option value="1">Magister</option>
 					        		<option value="2">Doctorado</option>
 					        	</select>
 					        </div>
-
+					         
 					    </div>
 					    <div class="col-lg-4 form-group">
-                <label for="a_postgrado">Área Postgrado</label>
-                <select class="form-control"
-                        name="a_postgrado"
-                        id="a_postgrado"
-                        disabled="disabled"
-                        data-validation="required"
-                        data-validation-help="Ingrese RUT sin digitos y con guión."
-                        data-validation-depends-on="postgrado"
-                        data-validation-depends-on-value="1, 2">
-                  <option value="">Elegir...</option>
-                  <option value="1">Informática</option>
-                  <option value="2">Negocio</option>
-                  <option value="3">Otros</option>
-                </select>
-              </div>
+			                <label for="a_postgrado">Área Postgrado</label>
+			                <select class="form-control"
+			                        name="a_postgrado"
+			                        id="a_postgrado"
+			                        disabled="disabled"
+			                        data-validation="required"
+			                        data-validation-help="Ingrese RUT sin digitos y con guión."
+			                        data-validation-depends-on="postgrado"
+			                        data-validation-depends-on-value="1, 2">
+			                  	<option value="">Elegir...</option>
+			                  	<option value="1">Informática</option>
+			                  	<option value="2">Negocio</option>
+			                  	<option value="3">Otros</option>
+			                </select>
+			            </div>
 					</div>
 					<div class="container-fluid">
 					    <div class="col-lg-4">
-
+					 
 					        <div class="form-group">
 					        	<label for="satisfaccion">Satisfacción Carrera</label>
 					        	<input type="text" class="form-control" name="satisfaccion" id="satisfaccion">
-					        </div>
-
+					        </div>					 
+					 
 					    </div>
 					    <div class="col-lg-4">
+					 
 					        <div class="form-group">
 					        	<label for="nota">Nota Carrera</label>
 					        	<select class="form-control" id="nota">
@@ -174,10 +179,10 @@
 								  	<option>5</option>
 								</select>
 					        </div>
-
+					         
 					    </div>
 					    <div class="col-lg-4">
-
+					 
 					        <div class="form-group">
 					      		<label for="cv">Curriculum Vitae</label>
 					        	<div class="input-group">
@@ -189,27 +194,27 @@
 					                <input type="text" class="form-control" readonly>
 					            </div>
 					      	</div>
-
+					         
 					    </div>
 					</div>
 					<div class="container-fluid">
 					    <div class="col-lg-12">
-
+					 
 					        <div class="form-group">
 					        	<label for="linkedin">Linkedin</label>
 					        	<input type="url" class="form-control" name="linkedin" id="linkedin">
-					        </div>
-
+					        </div>					 
+					 
 					    </div>
 					</div>
 					<div class="container-fluid">
 					    <div class="col-lg-12">
-
+					 
 					        <div class="form-group">
 					        	<label for="capacitacion">Necesidad Capacitación</label>
 					        	<textarea name="capacitacion" id="capacitacion" class="form-control"></textarea>
-					        </div>
-
+					        </div>					 
+					 
 					    </div>
 					</div>
         		</form>
@@ -218,5 +223,57 @@
         		<input href="/" class="btn btn-success" type="submit" value="Guardar" form="formulario-egresados">
       		</div>
     	</div>
+  	</div>
+</div>
+<div id="detalle" class="modal fade" role="dialog">
+  	<div class="modal-dialog">
+  	<!-- Modal content-->
+    	<div class="modal-content">
+      		<div class="modal-header" style="background-color:blue;color:white;border-top-left-radius:5px;border-top-right-radius:5px;">
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		<h4 class="modal-title">Cristian Rojas</h4>
+      		</div>
+      		<div class="modal-body">
+        		<ul>
+        			<li>
+        				Nombre: Cristian Fabiano Rojas Arredondo 
+        			</li>
+        			<li>
+        				Rut: 19.193.382-6
+        			</li>
+        			<li>
+        				Año Ingreso: 2014
+        			</li>
+        			<li>
+        				Año Egreso: 2019 
+        			</li>
+        			<li>
+        				Año Titulación: 2020
+        			</li>
+        			<li>
+        				Carrera: Ingeniería Informática
+        			</li>
+        			<li>
+        				Nota Carrera:
+			        	<select id="notaFix">
+						  	<option>1</option>
+						  	<option>2</option>
+						  	<option>3</option>
+						  	<option>4</option>
+						  	<option>5</option>
+						</select>
+        			</li>
+        			<li>
+        				Linkedin: https://cl.linkedin.com/Rojass <- Ficticio
+        			</li>
+        			<li>
+        				Postagrado: Doctorado
+        			</li>
+        			<li>
+        				Área de postgrado: Informática
+        			</li>
+        		</ul>
+      		</div>
+      	</div>
   	</div>
 </div>
