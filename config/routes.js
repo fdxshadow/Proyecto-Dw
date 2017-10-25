@@ -7,7 +7,11 @@
  * If Sails receives a URL that doesn't match any of the routes below,
  * it will check for matching files (images, scripts, stylesheets, etc.)
  * in your assets directory.  e.g. `http://localhost:1337/images/foo.jpg`
+<<<<<<< HEAD
+ * might match xan image file: `/assets/images/foo.jpg`
+=======
  * might match an image file: `/assets/images/foo.jpg`
+>>>>>>> 4e51c91337a697686f26975949c84d0e43ffcf36
  *
  * Finally, if those don't match either, the default 404 handler is triggered.
  * See `api/responses/notFound.js` to adjust your app's 404 logic.
@@ -31,10 +35,22 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
+<<<<<<< HEAD
+  '/':{
+    view: 'homepage'
+  },
+  '/Empresa':'CompanyController.mostrar',
+  'post /Agregar': 'CompanyController.create',
+  'get /Eliminar/:id':'CompanyController.delete',
+  'get /Editar/:id':'CompanyController.edit',
+  'get /Ver/:id':'CompanyController.view',
+  'post /Actualizar':'CompanyController.update'
+=======
 
   '/': {
     view: 'homepage'
   }
+>>>>>>> 4e51c91337a697686f26975949c84d0e43ffcf36
 
   /***************************************************************************
   *                                                                          *
