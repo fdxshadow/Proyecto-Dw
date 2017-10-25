@@ -35,7 +35,7 @@ module.exports.routes = {
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-<<<<<<< HEAD
+
   '/':{
     view: 'homepage'
   },
@@ -44,8 +44,7 @@ module.exports.routes = {
   'get /Eliminar/:id':'CompanyController.delete',
   'get /Editar/:id':'CompanyController.edit',
   'get /Ver/:id':'CompanyController.view',
-  'post /Actualizar':'CompanyController.update'
-=======
+  'post /Actualizar':'CompanyController.update',
 
   '/': {
     view: 'homepage',
@@ -61,7 +60,6 @@ module.exports.routes = {
   '/egresados': {
     view: 'egresados'
   }
->>>>>>> 4e51c91337a697686f26975949c84d0e43ffcf36
 
   /***************************************************************************
   *                                                                          *
