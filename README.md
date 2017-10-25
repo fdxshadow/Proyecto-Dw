@@ -1,5 +1,5 @@
 ##################################################
-###  		Documentación de hito 1            ### 
+###  		Documentación de hito 1 - Empleos           ### 
 ##################################################
 
 
@@ -18,4 +18,5 @@ Se entrega la lista de los empleados con su correspodiente empleo (empresa, la u
 término, cargo, supervisor, y sueldo). La que se res-
 cata de la base datos según los campos ingresados
 anteriormente en éste módulo. 
+
 

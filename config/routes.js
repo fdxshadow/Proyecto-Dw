@@ -43,6 +43,10 @@ module.exports.routes = {
     view: 'listaEmpleos'
   },
 
+  '/egresados': {
+    view: 'egresados'
+  }
+
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
