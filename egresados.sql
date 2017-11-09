@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.21-MariaDB, for Win32 (AMD64)
 --
--- Host: localhost    Database: Egresados
+-- Host: localhost    Database: localhost
 -- ------------------------------------------------------
--- Server version	5.7.20-0ubuntu0.16.04.1
+-- Server version	10.1.21-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -39,7 +39,7 @@ CREATE TABLE `egresado` (
   `Cv` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `rut` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_egresado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,6 +48,7 @@ CREATE TABLE `egresado` (
 
 LOCK TABLES `egresado` WRITE;
 /*!40000 ALTER TABLE `egresado` DISABLE KEYS */;
+INSERT INTO `egresado` VALUES (1,'ivette ','leon',2014,2020,2020,'informatica','0','5',1.0,'linkkkkk','',NULL,'x','19152972-3'),(2,'cristian','rojas',2015,2017,2018,'ejecucion','pico','excelente puu compare',2.0,'nose','magister','nose aun','x','10-8');
 /*!40000 ALTER TABLE `egresado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +63,9 @@ CREATE TABLE `empleo` (
   `id_empleo` int(11) NOT NULL AUTO_INCREMENT,
   `id_egresado` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
-  `id_supervisor` int(11) NOT NULL,
+  `id_supervisor1` int(11) DEFAULT NULL,
+  `id_supervisor2` int(11) DEFAULT NULL,
+  `id_supervisor3` int(11) DEFAULT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_termino` date DEFAULT NULL,
   `pais` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
@@ -72,11 +75,15 @@ CREATE TABLE `empleo` (
   PRIMARY KEY (`id_empleo`),
   KEY `id_egresado` (`id_egresado`),
   KEY `id_empresa` (`id_empresa`),
-  KEY `id_supervisor` (`id_supervisor`),
+  KEY `id_supervisor` (`id_supervisor1`),
+  KEY `id_supervisor2` (`id_supervisor2`,`id_supervisor3`),
+  KEY `id_supervisor3` (`id_supervisor3`),
   CONSTRAINT `empleo_ibfk_1` FOREIGN KEY (`id_egresado`) REFERENCES `egresado` (`id_egresado`),
   CONSTRAINT `empleo_ibfk_2` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`),
-  CONSTRAINT `empleo_ibfk_3` FOREIGN KEY (`id_supervisor`) REFERENCES `supervisor` (`id_supervisor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  CONSTRAINT `empleo_ibfk_3` FOREIGN KEY (`id_supervisor1`) REFERENCES `supervisor` (`id_supervisor`),
+  CONSTRAINT `empleo_ibfk_4` FOREIGN KEY (`id_supervisor2`) REFERENCES `supervisor` (`id_supervisor`),
+  CONSTRAINT `empleo_ibfk_5` FOREIGN KEY (`id_supervisor3`) REFERENCES `supervisor` (`id_supervisor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,6 +92,7 @@ CREATE TABLE `empleo` (
 
 LOCK TABLES `empleo` WRITE;
 /*!40000 ALTER TABLE `empleo` DISABLE KEYS */;
+INSERT INTO `empleo` VALUES (1,2,1,3,1,NULL,'2017-11-08','2017-11-30','chile','valparaiso','basurero','100.000');
 /*!40000 ALTER TABLE `empleo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,13 +105,14 @@ DROP TABLE IF EXISTS `empresa`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `empresa` (
   `id_empresa` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `rut` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
   `rubro` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `prioridad` float(2,1) DEFAULT NULL,
   `pais_origen` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `especialidad` enum('software','base de datos','redes') COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_empresa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,6 +121,7 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+INSERT INTO `empresa` VALUES (1,'','19152972','almacen',1.0,'chile','base de datos'),(2,'','10632857','botilleria',1.5,'chile','redes'),(3,'','111','pico',1.0,'CANADA','redes'),(4,'','13131313','rubro',1.0,'CHAILE',''),(5,'','191919','rubro',1.0,'CANADA PO','software'),(6,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(7,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(8,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(9,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(10,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(11,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(12,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(13,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(14,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(15,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(16,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(17,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(18,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(19,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(20,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(21,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(22,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(23,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(24,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(25,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(26,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(27,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(28,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos');
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +140,7 @@ CREATE TABLE `supervisor` (
   `telefono` int(9) NOT NULL,
   `nota` float(2,1) DEFAULT NULL,
   PRIMARY KEY (`id_supervisor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,6 +149,7 @@ CREATE TABLE `supervisor` (
 
 LOCK TABLES `supervisor` WRITE;
 /*!40000 ALTER TABLE `supervisor` DISABLE KEYS */;
+INSERT INTO `supervisor` VALUES (1,'33333333','miguel jose','miguel@hotmail.com ',988888222,1.0),(2,'34567897','camila prado','cami@uv.cl',834333333,2.0),(3,'18728374','juan tapia','juan@uv.cl',923245678,1.0),(4,'1111','ivette','nono',888,0.0);
 /*!40000 ALTER TABLE `supervisor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -151,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-30 23:11:58
+-- Dump completed on 2017-11-09  2:15:58
