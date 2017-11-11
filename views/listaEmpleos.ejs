@@ -80,30 +80,35 @@
 
     <br/>
 
-    <div class="row">
-        <div class="col-md-12" style="text-align:center">
-            <strong><i class="fa fa-info-circle"></i> En esta sección podra ver empleos de los egresados o ingresar un empleo.
-    Para ver alguna, seleccione una opción.</strong>
-        </div>
-        <br/><br/>
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-4" style="text-align:center">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
 
-            <div class="input-group">
-                <span class="input-group-addon" id="basic-addon1">OPCIÓN</span>
-                <select onchange="cambiarPanel()" id="opcion" name "empresa" class="form-control" aria-describedby="basic-addon1" required>
-                <option value="2">Ver empleos</option>
-                <option value="1">Ingreso empleo</option>
-        </select>
             </div>
 
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
+                    <li role="presentation"><a href="/addSupervisor">Agregar Supervisor</a></li>
+                    <li role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="col-md-4">
-        </div>
-    </div>
+        <!-- /.container-fluid -->
+    </nav>
 
     <br/>
+
+    <div class="row">
+        <div class="col-md-12" style="text-align:center">
+            <strong><i class="fa fa-info-circle"></i> En esta sección podra ver todos los empleos de los agresados</strong>
+        </div>
+        <br/><br/>
+    </div>
+
 
     <div class="col-md-12">
         <div class="panel panel-primary">
@@ -129,15 +134,15 @@
                                 <td>11.234.567-3</td>
                                 <td>Ingeniería Civil Informática</td>
                                 <td>
-                                    <button  type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
                                         <span class="fa fa-eye"></span>
                                     </button>
-                                    <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
                                         <span class="fa fa-pencil-square-o"></span>
                                     </button>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
                                         <span class="fa fa-ban"></span>
-                                    </button>                                                                        
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -149,12 +154,12 @@
                                     <button value="Cristian Rojas" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
                                         <span class="fa fa-eye"></span>
                                         </button>
-                                        <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
                                         <span class="fa fa-pencil-square-o"></span>
                                     </button>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
                                         <span class="fa fa-ban"></span>
-                                    </button>                                                                                           
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -166,12 +171,12 @@
                                     <button value="Juan Ignacio Parra" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
                                         <span class="fa fa-eye"></span>
                                         </button>
-                                        <button  type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
                                         <span class="fa fa-pencil-square-o"></span>
                                     </button>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
                                         <span class="fa fa-ban"></span>
-                                    </button>                                                                                          
+                                    </button>
                                 </td>
                             </tr>
 

@@ -20,3 +20,35 @@
     background-color: #617a92 !important; 
     color:white !important;
 }
+
+.infoEmpleado{
+    background-color:#b7e8f7   !important;
+    /*border-color: #409c95   !important;*/
+}
+.infoEmpleadoHeader{
+    background:#76c7b4 !important;
+    background-color:#64afc5    !important;
+    border-color: #0e7298    !important;
+}
+.bordeInfoEmpleado{
+    border-color: #0e7298      !important;
+}
+
+
+.addonSup{
+    width: 10em !important;
+}
+
+.textoAzulPanel{
+    font-size: 18px !important;
+    color: #163c4e !important;
+}
+
+.textoNegroPanel{
+    font-size: 18px !important;
+    color: #000000  !important;
+}
+
+.colorIconoAzul{
+    color: #163c4e  !important;
+}
