@@ -5,6 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+var egresadosGlobal = [];
+
 module.exports = {
     inicio: function (req, res) {
 
@@ -30,17 +32,29 @@ module.exports = {
             Job.query(queryEmpresa, [], function (err, resp) {
                 if (err) { return res.serverError(err); }
 
-                var empresas = [];
+                // var empresas = [];
 
-                var empresa = {
-                    'id_empresa': "IDIDID",
-                    'nombreRutEspec': "NOMBRESILLO"
-                }
-                empresas.push(empresa);
+                // var empresa = {
+                //     'id_empresa': "IDIDID",
+                //     'nombreRutEspec': "NOMBRESILLO"
+                // }
+                // empresas.push(empresa);
 
-                return res.view('inicioEmpleos', {
-                    egresados: egresados,
-                    empresas: resp
+                var empresas = resp;
+
+                // return res.view('inicioEmpleos', {
+                //     egresados: egresados,
+                //     empresas: resp
+                // });
+
+                Job.query('SELECT * FROM supervisor', [], function (err, resp) {
+                    if (err) { return res.serverError(err); }
+                    return res.view('inicioEmpleos', {
+                        egresados: egresados,
+                        empresas: empresas,
+                        supervisores: resp
+                    });
+
                 });
             });
 
@@ -112,17 +126,23 @@ module.exports = {
 
         var param = req.body;
 
+
         if (param.fechaTermino != null) {
             var fechasTermino = param.fechaTermino.split("/");
             var fechaTermino = fechasTermino[2].toString() + '-' + fechasTermino[1].toString() + '-' + fechasTermino[0].toString();
         }
         else fechaTermino = null;
 
+        var supervisores = param.supervisores;
+
+        var sup1 = supervisores[0];
+        var sup2 = supervisores.length > 1 ? supervisores[1] : null;
+        var sup3 = supervisores.length > 2 ? supervisores[2] : null;
 
         var fechasInicio = param.fechaInicio.split("/");
         var fechaInicio = fechasInicio[2].toString() + '-' + fechasInicio[1].toString() + '-' + fechasInicio[0].toString();
 
-        var query = "INSERT INTO empleo VALUES(null,'" + param.egresadoSelect + "', ' " + param.empresa + "' ,null,null,null,'" + fechaInicio + "', '" + fechaTermino + "' ,'" + param.pais + "','" + param.comuna + "','" + param.cargo + "','" + param.sueldo + "')";
+        var query = "INSERT INTO empleo VALUES(null,'" + param.egresadoSelect + "', ' " + param.empresa + "' ,  " + sup1 + " ,  " + sup2 + " , " + sup3 + " , ' " + fechaInicio + "', '" + fechaTermino + "' ,'" + param.pais + "','" + param.comuna + "','" + param.cargo + "','" + param.sueldo + "')";
 
         Job.query(query, [], function (err, resp) {
             if (err) { return res.serverError(err); }
