@@ -41,6 +41,7 @@ function camposVacios() {
 
     var egresadoSelect = document.getElementById('egresadoSelect').value;
     var empresa = document.getElementById('empresa').value;
+    var supervisores = $('#supervSelect').val();
     var cargo = document.getElementById('cargo').value;
     var fechaInicio = document.getElementById('fechaInicio').value;
     var fechaTermino = document.getElementById('fechaTermino').value;
@@ -59,6 +60,7 @@ function camposVacios() {
         $('#egresadoSelect').css("border", "2px solid #5aa91b");
     }
 
+
     if (pais == 'Chile') {
         $('#inputComuna').hide();
         $('#listaComuna').show();
@@ -75,11 +77,18 @@ function camposVacios() {
         $('#empresa').css("border", "2px solid #5aa91b");
     }
 
+    if (supervisores.length == 0) {
+        faltan.push('Supervisores');
+        banderaRBTN = false;
+    }
+
     if (!tieneLetra(cargo)) {
+        console.log("PICHULA");
         faltan.push('Cargo');
         banderaRBTN = false;
         $('#cargo').css("border", "1px solid #ccc");
     } else {
+        console.log("PICHULA2");
         $('#cargo').css("border", "2px solid #5aa91b");
     }
 
@@ -160,24 +169,24 @@ function camposVacios() {
     //     banderaRBTN = false;
     // }
 
-     if (!tieneLetra(inputComunaSelect) && listaComunaSelect == 0) {
+    if (!tieneLetra(inputComunaSelect) && listaComunaSelect == 0) {
         faltan.push("Ciudad");
         banderaRBTN = false;
     }
-    else{
-        if(pais == "0"){
+    else {
+        if (pais == "0") {
         }
-        else{
-            if(pais != 'Chile'){
-                if(!tieneLetra(inputComunaSelect)){
+        else {
+            if (pais != 'Chile') {
+                if (!tieneLetra(inputComunaSelect)) {
                     banderaRBTN = false;
                     faltan.push("Ciudad");
                 }
             }
-            else{
-                if(listaComunaSelect != "0"){
+            else {
+                if (listaComunaSelect != "0") {
                 }
-                else{
+                else {
                     banderaRBTN = false;
                     faltan.push("Ciudad");
                 }
@@ -239,6 +248,7 @@ function enviarForm() {
 
         var egresadoSelect = document.getElementById('egresadoSelect').value;
         var empresa = document.getElementById('empresa').value;
+        var supervisores = $('#supervSelect').val();
         var cargo = document.getElementById('cargo').value;
         var fechaInicio = document.getElementById('fechaInicio').value;
         var fechaTermino = document.getElementById('fechaTermino').value;
@@ -250,6 +260,7 @@ function enviarForm() {
         var arg = {
             "egresadoSelect": egresadoSelect,
             "empresa": empresa,
+            "supervisores": supervisores,
             "cargo": cargo,
             "fechaInicio": fechaInicio,
             "fechaTermino": fechaTermino != "" ? fechaTermino : null,
@@ -261,7 +272,7 @@ function enviarForm() {
         io.socket.post('/addEmpleo', arg, function (error, data) {
 
             if (data.statusCode == 200) {
-
+                
                 $('#nombreEgresado').text('');
                 $('#apellidoEgresado').text('');
                 $('#rutEgresado').text('');
@@ -270,13 +281,14 @@ function enviarForm() {
                 $('#egresoEgresado').text('');
                 $('#titulacionEgresado').text('');
 
-                $("#egresadoSelect").val("-1");
-                $("#empresa").val("0");
+                $('#egresadoSelect').selectpicker('val', '-1');
+                $('#empresa').selectpicker('val', '0');
+                $('#supervSelect').selectpicker('val', []);
                 $("#cargo").val("");
                 $("#fechaInicio").val("");
                 $("#fechaTermino").val("");
-                $("#sueldo").val("");
-                $("#pais").val("");
+                $("#sueldo").val("0");
+                $("#pais").val("0");
                 $("#inputComunaSelect").val("");
                 $("#listaComunaSelect").val("0");
 
