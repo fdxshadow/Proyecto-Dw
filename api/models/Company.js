@@ -1,34 +1,44 @@
 /**
- * User.js
+ * Company.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-
+  
+  	
+	autoCreatedAt: false,
+	autoUpdatedAt: false,
+  
+  connection: 'someMysqlServer',
+  tableName: 'empresa',
+  
   attributes: {
-  	name:{
+    id_empresa:{
+      type: 'integer',
+      autoIncrement: true,
+      primaryKey: true
+    },
+  	nombre:{
   	  type: 'string'
     },
-
     rut:{
       type: 'string'
     },
-    
-    item:{
+    rubro:{
       type: 'string'
     },
-    
-    priority:{
+    prioridad:{
+      type: 'integer'
+    },
+    pais_origen:{
       type: 'string'
     },
-    
-    country:{
-      type: 'string'
-    },
-    specialty:{
-      type: 'string'
+    especialidad:{
+      type: 'string',
+      enum: ['software', 'base de datos', 'redes'],
+      defaultsTo: 'Sin Asignar'
     }
   }
 };
