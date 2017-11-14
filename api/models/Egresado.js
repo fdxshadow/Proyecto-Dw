@@ -45,7 +45,7 @@ module.exports = {
     },
     carrera:{
     	type:'string',
-      enum: ['ejecucion', 'informatica', 'civil']
+      enum: ['ejecucion', 'informatica', 'civil'],
       required:true
     },
     postgrado:{
@@ -61,14 +61,14 @@ module.exports = {
     nota_carrera:{
     	type:'float'
     },
+    Cv:{
+      type:'string'
+    },
     linkedin:{
     	type:'string'
     },
     nec_cap:{
     	type:'string'
-    },
-    Cv:{
-      type:'string'
     }
   }
 
