@@ -29,7 +29,6 @@ module.exports = {
                   if (err) console.log(err);
                   res.redirect('/Empresa'); 
                 });
-		
 	},
 	//ok
 	delete:function(req,res){
@@ -58,6 +57,7 @@ module.exports = {
 		}) 
 	},
 	//ok
+		//ok
 	edit:function(req,res){
 		var param = { 
 			id : req.param('id')
@@ -79,7 +79,7 @@ module.exports = {
 				pais_origen: req.param('pais_origen'),
 				especialidad: req.param('especialidad')
 			}
-			).exec(function(err, companys){
+			).exec(function(err, company){
 					if(err) return res.send(err);
 					else{
 						return res.redirect('/Empresa');

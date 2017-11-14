@@ -20,7 +20,7 @@
 --
 
 DROP TABLE IF EXISTS `egresado`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET @saved_cs_client    = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `egresado` (
   `id_egresado` int(11) NOT NULL AUTO_INCREMENT,

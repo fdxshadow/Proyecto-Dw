@@ -4,6 +4,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  
   '/Empresa': 'CompanyController.mostrar',
   'post /Agregar': 'CompanyController.create',
   'get /Eliminar/:id': 'CompanyController.delete',

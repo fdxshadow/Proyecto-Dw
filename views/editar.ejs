@@ -10,10 +10,10 @@
 		<h1>Editar Empresa</h1>
 		<div class="col-md-12">
 			<form method="post" action="/Actualizar">
-				<input type="hidden" name="id" value="<%=company[0].id%>">
+				<input type="hidden" name="id_empresa" value="<%=company[0].id_empresa%>">
 				<div class="form-group">
 					<label>Nombre Empresa</label>
-					<input value="<%=company[0].name%>" type="text" class="form-control" name="name">
+					<input value="<%=company[0].nombre%>" type="text" class="form-control" name="nombre">
 				</div>
 				<div class="form-group">
 					<label>RUT</label>

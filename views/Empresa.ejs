@@ -57,11 +57,16 @@
         	<div class="form-group">
 	        	<label>Nombre Empresa</label>
 	        	<input type="text" class="form-control" name="nombre">
-	        </div>	
+	        </div>
+	        
 	        <div class="form-group">	
 	        	<label>RUT</label>
-	        	<input type="text" class="form-control" name="rut">
+	        	<input placeholder="Ingrese su rut" onkeypress="return digitosRut(event);"
+	        	      class="form-control" id="rutSup" name="rut" onchange="validarRut()" required>
+	        	<i style="color:red" id="errorRutSup" class="control-label"></i>
+	        	<i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
 	        </div>
+	        
 	        <label>Rubro Empresa</label>
 	        <div class="form-group">
               <select class="form-control" name="rubro">
