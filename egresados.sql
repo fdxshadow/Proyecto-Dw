@@ -39,7 +39,7 @@ CREATE TABLE `egresado` (
   `Cv` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `rut` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_egresado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `egresado` (
 
 LOCK TABLES `egresado` WRITE;
 /*!40000 ALTER TABLE `egresado` DISABLE KEYS */;
-INSERT INTO `egresado` VALUES (1,'ivette ','leon',2014,2020,2020,'informatica','0','5',1.0,'linkkkkk','',NULL,'x','19152972-3'),(2,'cristian','rojas',2015,2017,2018,'ejecucion','pico','excelente puu compare',2.0,'nose','magister','nose aun','x','10-8');
+INSERT INTO `egresado` VALUES (1,'ivette ','leon',2014,2020,2020,'informatica','0','5',1.0,'linkkkkk','',NULL,'x','19152972-3'),(2,'cristian','rojas',2015,2017,2018,'ejecucion','pico','excelente puu compare',2.0,'nose','magister','nose aun','x','10-8'),(3,'Javier','perez',1998,2017,2019,'civil','emememem','wena wena qlo',1.0,'www.redtube.com','magister','caca','asdasd','18172636-4');
 /*!40000 ALTER TABLE `egresado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -83,7 +83,7 @@ CREATE TABLE `empleo` (
   CONSTRAINT `empleo_ibfk_3` FOREIGN KEY (`id_supervisor1`) REFERENCES `supervisor` (`id_supervisor`),
   CONSTRAINT `empleo_ibfk_4` FOREIGN KEY (`id_supervisor2`) REFERENCES `supervisor` (`id_supervisor`),
   CONSTRAINT `empleo_ibfk_5` FOREIGN KEY (`id_supervisor3`) REFERENCES `supervisor` (`id_supervisor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +92,6 @@ CREATE TABLE `empleo` (
 
 LOCK TABLES `empleo` WRITE;
 /*!40000 ALTER TABLE `empleo` DISABLE KEYS */;
-INSERT INTO `empleo` VALUES (1,2,1,3,1,NULL,'2017-11-08','2017-11-30','chile','valparaiso','basurero','100.000');
 /*!40000 ALTER TABLE `empleo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +111,7 @@ CREATE TABLE `empresa` (
   `pais_origen` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
   `especialidad` enum('software','base de datos','redes') COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_empresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +120,7 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
-INSERT INTO `empresa` VALUES (1,'','19152972','almacen',1.0,'chile','base de datos'),(2,'','10632857','botilleria',1.5,'chile','redes'),(3,'','111','pico',1.0,'CANADA','redes'),(4,'','13131313','rubro',1.0,'CHAILE',''),(5,'','191919','rubro',1.0,'CANADA PO','software'),(6,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(7,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(8,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(9,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(10,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(11,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(12,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(13,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(14,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(15,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(16,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(17,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(18,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(19,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(20,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(21,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(22,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(23,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(24,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(25,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(26,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(27,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos'),(28,'','1234567','rubritoo',1.0,'PAIS ORIGEN MAMA PO','base de datos');
+INSERT INTO `empresa` VALUES (39,'arg','16756567','informatica',0.0,'chile','base de datos'),(40,'YOGITO','11111110','CACA',0.0,'chile','software'),(41,'DISICO','19272362','WEAS',0.0,'chile','redes'),(42,'adsads','19272362','Suministro de Electricidad, Gas y Agua',3.0,'España','software');
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,8 +138,9 @@ CREATE TABLE `supervisor` (
   `correo` varchar(40) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(9) NOT NULL,
   `nota` float(2,1) DEFAULT NULL,
-  PRIMARY KEY (`id_supervisor`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  PRIMARY KEY (`id_supervisor`),
+  UNIQUE KEY `rut` (`rut`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `supervisor` (
 
 LOCK TABLES `supervisor` WRITE;
 /*!40000 ALTER TABLE `supervisor` DISABLE KEYS */;
-INSERT INTO `supervisor` VALUES (1,'33333333','miguel jose','miguel@hotmail.com ',988888222,1.0),(2,'34567897','camila prado','cami@uv.cl',834333333,2.0),(3,'18728374','juan tapia','juan@uv.cl',923245678,1.0),(4,'1111','ivette','nono',888,0.0);
+INSERT INTO `supervisor` VALUES (47,'19152972-3','ivi','ajaj@ajaja',1212,2.0);
 /*!40000 ALTER TABLE `supervisor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-09  2:15:58
+-- Dump completed on 2017-11-13 20:13:04

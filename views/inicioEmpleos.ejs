@@ -4,7 +4,6 @@
 
   <% }) %>-->
 
-
 <br/>
 
 <nav class="navbar navbar-default">
@@ -176,7 +175,8 @@
   <div class="input-group">
     <span class="input-group-addon">Egresado</span>
 
-    <select data-live-search="true" onchange="getEgresadoSelect()" id="egresadoSelect" class="form-control">
+    <select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" onchange="getEgresadoSelect()"
+      id="egresadoSelect">
 
           <option value="-1" selected disabled> Seleccionar un egresado</option>
 							   
@@ -228,9 +228,9 @@
 
           <div class="row">
 
-            <div class="col-md-12"> <strong class="textoAzulPanel">Año ingreso: </strong> <span class=textoNegroPanel id=ingresoEgresado> </span> </div>
+            <div class="col-md-12"> <strong class="textoAzulPanel">Año ingreso: </strong> <span class=textoNegroPanel id=ingresoEgresado> </span>              </div>
             <div class="col-md-12"> <strong class="textoAzulPanel">Año egreso: </strong> <span class=textoNegroPanel id=egresoEgresado> </span> </div>
-            <div class="col-md-12"> <strong class="textoAzulPanel">Año titulación: </strong><span class=textoNegroPanel id=titulacionEgresado> </span> </div>
+            <div class="col-md-12"> <strong class="textoAzulPanel">Año titulación: </strong><span class=textoNegroPanel id=titulacionEgresado> </span>              </div>
           </div>
 
         </div>
@@ -252,50 +252,18 @@
     <div class="panel-body">
 
       <div class="form-horizontal">
-        <!--<div class="form-group">
-          <label class="col-lg-2 control-label">Nombre</label>
-          <div class="col-lg-10">
-            <input type="text" class="form-control" id="nombre" name "nombre" placeholder="Ingrese nombre" data-validation-regexp="^([a-zA-Z\s]+)$"
-              data-validation="required custom">
-          </div>
-        </div>-->
-
-        <!--<div class="form-group">
-          <label class="col-md-2 control-label">Rut</label>
-          <div class="col-md-10">
-            <input type="text" class="form-control" name="rut" id="rut" onchange="validarRut()">
-          </div>
-          <div class="col-md-2"></div>
-          <div class="col-md-10">
-            <i style="color:red" id="errorRut" class="control-label"></i>
-          </div>
-        </div>-->
-
-        <!--<div class="form-group">
-          <div class="col-md-2"></div>
-          <div class="col-md-10">
-            <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
-          </div>
-        </div>-->
 
         <div class="form-group">
           <label class="col-lg-2 control-label">Empresa</label>
           <div class="col-lg-10">
-            <!--<select id="empresa" name "empresa" class="form-control" aria-describedby="basic4">
-                  <option value="0">Seleccione una empresa</option>
-                  <option value="1">Empresa 1</option>
-                  <option value="2">Empresa 2</option>
-                  <option value="3">Empresa 3</option>
 
-                </select>-->
-
-            <select onchange="habDesBoton()" id="empresa" class="form-control">
+            <select id="empresa" class="selectpicker form-control" data-show-subtext="true" data-live-search="true" onchange="habDesBoton()">
 
                   <option value="0" selected disabled> Seleccionar una empresa</option>
                         
                   <% _.each(empresas, function(empresa) { %>
 
-                    <option value= <%= empresa.id_empresa %> > <%= empresa.nombre %> - <%= empresa.rut %> - Especialidad <%= empresa.especialidad %> </option>
+                    <option data-subtext="Especialidad <%= empresa.especialidad %> " value= <%= empresa.id_empresa %> > <%= empresa.nombre %> - <%= empresa.rut %></option>
 
                     <% }) %>
 
@@ -308,6 +276,20 @@
           <label class="col-lg-2 control-label">Supervisor</label>
           <div class="col-lg-10">
 
+            <select multiple id="supervSelect" class="selectpicker form-control" title="Seleccione supervisores" data-show-subtext="true"
+              data-live-search="true" data-max-options="3">
+                        
+                  <% _.each(supervisores, function(supervisor) { %>
+
+                    <option value=<%= supervisor.id_supervisor %> > <%= supervisor.nombre %> - <%= supervisor.rut %> </option>
+
+                    <% }) %>
+
+              </select>
+          </div>
+          <div class="col-lg-2"> </div>
+          <div class="col-lg-10">
+            <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i>Puede seleccionar hasta 3 supervisores.</i>
           </div>
         </div>
 
