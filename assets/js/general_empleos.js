@@ -82,7 +82,10 @@ function soloLetras(e) {
 
 function limpiar() {
 
-    $("#empresa").val("0");
+
+
+    $('#empresa').selectpicker('val', '0');
+    $('#supervSelect').selectpicker('val', []);
     $("#cargo").val("");
     $("#fechaInicio").val("");
     $("#fechaTermino").val("");

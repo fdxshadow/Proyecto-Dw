@@ -1,12 +1,13 @@
+var estadoRutGlobal = null;
 
 $(document).ready(function () {
 
     $('#listaComuna').hide();
     $('#inputComuna').show();
-    $('#SupervisorModal').on('show.bs.modal', function (evnt) {
-        var nombre = $(evnt.relatedTarget).val();
-        $('#empleadoSelect').text(nombre);
-    });
+    // $('#SupervisorModal').on('show.bs.modal', function (evnt) {
+    //     var nombre = $(evnt.relatedTarget).val();
+    //     $('#empleadoSelect').text(nombre);
+    // });
 
     $('.texto').datepicker({
         language: "es",
@@ -14,7 +15,6 @@ $(document).ready(function () {
     });
 
 });
-
 
 function tieneLetra(palabra) {
 
@@ -41,6 +41,7 @@ function camposVacios() {
 
     var egresadoSelect = document.getElementById('egresadoSelect').value;
     var empresa = document.getElementById('empresa').value;
+    var supervisores = $('#supervSelect').val();
     var cargo = document.getElementById('cargo').value;
     var fechaInicio = document.getElementById('fechaInicio').value;
     var fechaTermino = document.getElementById('fechaTermino').value;
@@ -73,6 +74,11 @@ function camposVacios() {
         banderaRBTN = false;
     } else {
         $('#empresa').css("border", "2px solid #5aa91b");
+    }
+
+    if (supervisores.length == 0) {
+        faltan.push('Supervisores');
+        banderaRBTN = false;
     }
 
     if (!tieneLetra(cargo)) {
@@ -138,46 +144,24 @@ function camposVacios() {
         $('#inputComunaSelect').css("border", "2px solid #5aa91b");
     }
 
-    // if (pais == 'Chile') {
-    //     if (listaComunaSelect == null || listaComunaSelect == 0) {
-    //         console.log("1111111");
-    //         faltan.push('Ciudad');
-    //         banderaRBTN = false;
-    //     }
-
-    // } else if (pais != 0) {
-    //     if (inputComunaSelect == null || inputComunaSelect.length == 0 || /^\s+$/.test(inputComunaSelect)) {
-    //         console.log("222222");
-    //         faltan.push('Ciudad');
-    //         banderaRBTN = false;
-    //     }
-
-    // }
-
-    // if (!tieneLetra(inputComunaSelect) && listaComunaSelect == 0) {
-    //     console.log("3");
-    //     faltan.push("Ciudad");
-    //     banderaRBTN = false;
-    // }
-
-     if (!tieneLetra(inputComunaSelect) && listaComunaSelect == 0) {
+    if (!tieneLetra(inputComunaSelect) && listaComunaSelect == 0) {
         faltan.push("Ciudad");
         banderaRBTN = false;
     }
-    else{
-        if(pais == "0"){
+    else {
+        if (pais == "0") {
         }
-        else{
-            if(pais != 'Chile'){
-                if(!tieneLetra(inputComunaSelect)){
+        else {
+            if (pais != 'Chile') {
+                if (!tieneLetra(inputComunaSelect)) {
                     banderaRBTN = false;
                     faltan.push("Ciudad");
                 }
             }
-            else{
-                if(listaComunaSelect != "0"){
+            else {
+                if (listaComunaSelect != "0") {
                 }
-                else{
+                else {
                     banderaRBTN = false;
                     faltan.push("Ciudad");
                 }
@@ -239,6 +223,7 @@ function enviarForm() {
 
         var egresadoSelect = document.getElementById('egresadoSelect').value;
         var empresa = document.getElementById('empresa').value;
+        var supervisores = $('#supervSelect').val();
         var cargo = document.getElementById('cargo').value;
         var fechaInicio = document.getElementById('fechaInicio').value;
         var fechaTermino = document.getElementById('fechaTermino').value;
@@ -250,6 +235,7 @@ function enviarForm() {
         var arg = {
             "egresadoSelect": egresadoSelect,
             "empresa": empresa,
+            "supervisores": supervisores,
             "cargo": cargo,
             "fechaInicio": fechaInicio,
             "fechaTermino": fechaTermino != "" ? fechaTermino : null,
@@ -270,13 +256,14 @@ function enviarForm() {
                 $('#egresoEgresado').text('');
                 $('#titulacionEgresado').text('');
 
-                $("#egresadoSelect").val("-1");
-                $("#empresa").val("0");
+                $('#egresadoSelect').selectpicker('val', '-1');
+                $('#empresa').selectpicker('val', '0');
+                $('#supervSelect').selectpicker('val', []);
                 $("#cargo").val("");
                 $("#fechaInicio").val("");
                 $("#fechaTermino").val("");
-                $("#sueldo").val("");
-                $("#pais").val("");
+                $("#sueldo").val("0");
+                $("#pais").val("0");
                 $("#inputComunaSelect").val("");
                 $("#listaComunaSelect").val("0");
 
@@ -385,10 +372,11 @@ function validarRut() {
     }
     else {
         if (/^\d{1,9}-[\d|kK]{1}$/.test(rut)) {
-            if (digitoVerificador(rut)) {
+            if (digitoVerificador(rut)) { //RUT CORRECTO
                 $('#errorRutSup').text("");
                 //$('#rutSup').css("border", "2px solid #5aa91b");
                 $('#rutSup').css("border", "2px solid #ccc");
+                buscarRutBd(rut);
             }
             else {
                 $('#errorRutSup').text("Digito verificador incorrecto.");
@@ -428,7 +416,6 @@ function getEgresadoSelect() {
         }
         else {
 
-            console.log("egresado", resp[0]);
             $('#nombreEgresado').text(resp[0].nombre + ' ' + resp[0].apellido);
             $('#apellidoEgresado').text(resp[0].apellido);
             $('#rutEgresado').text(resp[0].rut);
@@ -452,6 +439,9 @@ function validarFormSup() {
     var nombreSup = document.getElementById('nombreSup').value;
     var rut = document.getElementById('rutSup').value;
 
+    if (estadoRutGlobal) {
+        banderaRBTN = false;
+    }
 
     if (!tieneLetra(nombreSup)) {
         banderaRBTN = false;
@@ -466,15 +456,20 @@ function validarFormSup() {
 
 
     if (rut.length === 0 || !rut.trim() || rut == "") {
-        $('#errorRutSup').text("");
+        //$('#errorRutSup').text("testtt");
         $('#rutSup').css("border", "1px solid #ccc");
     }
     else {
         if (/^\d{1,9}-[\d|kK]{1}$/.test(rut)) {
             if (digitoVerificador(rut)) {
-                $('#errorRutSup').text("");
-                //$('#rutSup').css("border", "2px solid #5aa91b");
-                $('#rutSup').css("border", "2px solid #ccc");
+                if (estadoRutGlobal) {
+                    $('#errorRutSup').text("Este rut ya existe asociado a un supervisor");
+                    $('#rutSup').css("border", "2px solid #fd5757");
+                }
+                else {
+                    $('#errorRutSup').text("");
+                    $('#rutSup').css("border", "2px solid #ccc");
+                }
             }
             else {
                 banderaRBTN = false;
@@ -527,3 +522,42 @@ function setFormSup() {
     $('#nota').css("border", "1px solid #ccc");
 
 }
+
+
+function buscarRutBd(rut) {
+
+    var arg = {
+        "rut": rut
+    }
+
+    io.socket.post('/getRutSupervisor', arg, function (error, data) {
+
+        if (data.statusCode == 200) {
+            var resp = data.body;
+            if (resp.length > 0) {
+                swal({
+                    //title: 'Error!',
+                    text: 'Este rut ya existe asociado a un supervisor',
+                    type: 'error',
+                    confirmButtonText: 'Entendido',
+                })
+                //console.log("YA EXISTE");
+                $('#errorRutSup').text("Este rut ya existe asociado a un supervisor");
+                $('#rutSup').css("border", "2px solid #fd5757");
+                estadoRutGlobal = true;
+            }
+            else {
+                //console.log("NADA, SOLO PONER EN PLOMO");
+                $('#errorRutSup').text("");
+                $('#rutSup').css("border", "2px solid #ccc");
+                estadoRutGlobal = false;
+            }
+        }
+        else {
+            console.log(error);
+        }
+
+    });
+}
+
+
