@@ -82,7 +82,10 @@ function soloLetras(e) {
 
 function limpiar() {
 
+
+
     $('#empresa').selectpicker('val', '0');
+    $('#supervSelect').selectpicker('val', []);
     $("#cargo").val("");
     $("#fechaInicio").val("");
     $("#fechaTermino").val("");
@@ -92,7 +95,6 @@ function limpiar() {
     $("#listaComunaSelect").val("0");
 
     $('#empresa').css("border", "1px solid #ccc");
-    $('#supervSelect').selectpicker('val', []);
     $('#cargo').css("border", "1px solid #ccc");
     $('#fechaInicio').css("border", "1px solid #ccc");
     $('#fechaTermino').css("border", "1px solid #ccc");

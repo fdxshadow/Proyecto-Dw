@@ -11,19 +11,18 @@ module.exports.routes = {
   'get /Ver/:id': 'CompanyController.view',
   'post /Actualizar': 'CompanyController.update',
 
-  '/getSupervisores': 'JobController.getSupervisores',
-  '/getEmpleos': 'JobController.getEmpleos',
+//MODULO EMPLEOS
+
+  '/inicioEmpleos': 'JobController.inicio',
   'post /getEgresados': 'JobController.getEgresados',
   'post /getEgresadoSelect': 'JobController.getEgresadoSelect',
-  '/getEmpresas': 'JobController.getEmpresas',
-
+  'post /getRutSupervisor': 'SupervisorController.buscarRut',
   'post /addEmpleo': 'JobController.addEmpleo',
 
-  '/addFormSuperv': 'JobController.addFormSuperv',
-
-
-  '/inicioEmpleos':
-  'JobController.inicio',
+  'post /getSupervisores': 'SupervisorController.getSupervisores',
+  'post /addSup': 'SupervisorController.addSupervisor',
+  'post /buscarRut': 'SupervisorController.buscarRut',
+  'post /addFormSuperv': 'SupervisorController.addSupervisor',
 
   '/addSupervisor': {
     view: 'addSupervisor'
@@ -36,9 +35,11 @@ module.exports.routes = {
     view: 'listaEmpleos'
   },
 
+//FIN MODULO EMPLEOS
+
   '/egresados': {
     view: 'egresados'
-  }
+  },
 
 
 };
