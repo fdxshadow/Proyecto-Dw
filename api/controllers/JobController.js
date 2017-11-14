@@ -1,10 +1,3 @@
-/**
- * JobController
- *
- * @description :: Server-side logic for managing jobs
- * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
- */
-
 var egresadosGlobal = [];
 
 module.exports = {
@@ -32,29 +25,16 @@ module.exports = {
             Job.query(queryEmpresa, [], function (err, resp) {
                 if (err) { return res.serverError(err); }
 
-                // var empresas = [];
-
-                // var empresa = {
-                //     'id_empresa': "IDIDID",
-                //     'nombreRutEspec': "NOMBRESILLO"
-                // }
-                // empresas.push(empresa);
-
                 var empresas = resp;
 
-                // return res.view('inicioEmpleos', {
-                //     egresados: egresados,
-                //     empresas: resp
-                // });
+                Supervisor.find().exec(function (err, supervisores) {
+                    if (err) console.log(err);
 
-                Job.query('SELECT * FROM supervisor', [], function (err, resp) {
-                    if (err) { return res.serverError(err); }
                     return res.view('inicioEmpleos', {
                         egresados: egresados,
                         empresas: empresas,
-                        supervisores: resp
+                        supervisores: supervisores
                     });
-
                 });
             });
 
@@ -76,7 +56,6 @@ module.exports = {
 
         return res.ok(respuesta);
 
-
     },
 
     getEgresados: function (req, res) {
@@ -92,40 +71,9 @@ module.exports = {
         });
     },
 
-    getEmpresas: function (req, res) {
-
-        Job.query('SELECT * FROM empresa', [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok(resp);
-
-        });
-    },
-
-    getSupervisores: function (req, res) {
-
-        Job.query('SELECT * FROM supervisor', [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok();
-
-        });
-    },
-
-    getEmpleos: function (req, res) {
-
-        Job.query('SELECT * FROM egresado as e inner join empleo as em on e.id_egresado = em.id_egresado', [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok();
-
-        });
-    },
-
     addEmpleo: function (req, res) {
 
         var param = req.body;
-
 
         if (param.fechaTermino != null) {
             var fechasTermino = param.fechaTermino.split("/");
@@ -149,21 +97,8 @@ module.exports = {
 
             return res.ok(resp);
         });
-        //return res.ok();
+
     },
 
-    addFormSuperv: function (req, res) {
-
-        var param = req.body;
-        var query = "INSERT INTO `supervisor` VALUES (null,'" + param.rutSup + "' ,'" + param.nombreSup + "','" + param.correo + "','" + param.telefono + "','" + param.nota + "')";
-
-        Job.query(query, [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok(resp);
-        });
-
-        //res.send("ok");
-    }
 };
 
