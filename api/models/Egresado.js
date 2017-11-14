@@ -62,7 +62,8 @@ module.exports = {
     	type:'float'
     },
     Cv:{
-      type:'string'
+      type:'string',
+      defaultsTo:'miArchivo'
     },
     linkedin:{
     	type:'string'
