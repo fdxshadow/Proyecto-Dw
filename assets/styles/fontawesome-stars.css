@@ -39,3 +39,6 @@
     color: black;
   }
 }
+#notaFix ~ .br-widget, li .br-wrapper{
+  display: inline;
+}
