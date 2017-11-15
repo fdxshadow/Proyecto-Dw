@@ -9,4 +9,9 @@ module.exports.connections = {
     password: '', //optional
     database: 'egresados' //optional
   },
+<<<<<<< HEAD
 };
+=======
+
+};
+>>>>>>> 520dda55fe2beb00c65c7f456ffa41823f5cb8d7

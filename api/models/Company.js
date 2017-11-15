@@ -21,16 +21,21 @@ module.exports = {
       primaryKey: true
     },
   	nombre:{
-  	  type: 'string'
+  	  type: 'string',
+  	  required: true
     },
     rut:{
-      type: 'string'
+      type: 'string',
+      required: true
     },
     rubro:{
-      type: 'string'
+      type: 'string',
+      required: true
     },
     prioridad:{
-      type: 'integer'
+      type: 'float',
+      required: true
+      
     },
     pais_origen:{
       type: 'string'
@@ -38,7 +43,8 @@ module.exports = {
     especialidad:{
       type: 'string',
       enum: ['software', 'base de datos', 'redes'],
-      defaultsTo: 'Sin Asignar'
+      defaultsTo: 'Sin Asignar',
+      required: true
     }
   }
 };
