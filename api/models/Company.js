@@ -35,10 +35,10 @@ module.exports = {
     prioridad:{
       type: 'float',
       required: true
-      
     },
     pais_origen:{
-      type: 'string'
+      type: 'string',
+      required: true
     },
     especialidad:{
       type: 'string',
