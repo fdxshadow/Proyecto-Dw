@@ -1,4 +1,3 @@
-
 var egresadosGlobal = [];
 var empleosGlobal = [];
 
@@ -10,7 +9,7 @@ module.exports = {
         var queryEmpleo = "SELECT * FROM empleo";
         //"SELECT * FROM empleo where id_egresado ='" + req.id_egresado + "'";
          //here id_egresado ='" + req.id_egresado + "'";
-         console.log(req.id_egresado);
+         
          Job.query(queryEgresado, [], function (err, resp) {
             if (err) { return res.serverError(err); }
 
@@ -109,6 +108,7 @@ module.exports = {
 		var empleos = [];
         var id = req.id_egresado;
         var respuesta = [];
+        console.log(req.id_egresado);
         for (var x = 0; x < empleosGlobal.length; x++) {
             if (empleosGlobal[x].id_egresado == id) {
             	var cont = x+1;
@@ -145,16 +145,6 @@ module.exports = {
     },
 
 
-    getEmpresas: function (req, res) {
-
-        Job.query('SELECT * FROM empresa', [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok(resp);
-
-        });
-    },
-
     getSupervisores: function (req, res) {
 
         Job.query('SELECT * FROM supervisor', [], function (err, resp) {
@@ -166,23 +156,6 @@ module.exports = {
     },
 
 
-    addFormSuperv: function (req, res) {
-
-        var param = req.body;
-        var query = "INSERT INTO `supervisor` VALUES (null,'" + param.rutSup + "' ,'" + param.nombreSup + "','" + param.correo + "','" + param.telefono + "','" + param.nota + "')";
-
-        Job.query(query, [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            return res.ok(resp);
-        });
-
-        //res.send("ok");
-    }
-
-
-
-
-
+};
 
 };
