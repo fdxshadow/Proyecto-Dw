@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 -- MySQL dump 10.16  Distrib 10.1.21-MariaDB, for Win32 (AMD64)
 --
 -- Host: localhost    Database: localhost
 -- ------------------------------------------------------
--- Server version	10.1.21-MariaDB
+-- Server version 10.1.21-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -169,7 +168,7 @@ UNLOCK TABLES;
 --
 -- Host: localhost    Database: localhost
 -- ------------------------------------------------------
--- Server version	10.1.21-MariaDB
+-- Server version 10.1.21-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -330,4 +329,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2017-11-13 20:13:04
->>>>>>> developt

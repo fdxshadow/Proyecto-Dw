@@ -40,6 +40,11 @@ module.exports.routes = {
   '/egresados': {
     view: 'egresados'
   },
+  'get /api/egresados': 'EgresadoController.getEgresados',
+  'get /api/egresados/:id': 'EgresadoController.getEgresadosbyId',
+  'post /api/egresados': 'EgresadoController.createEgresado',
+  'put /api/egresados': 'EgresadoController.updateEgresado',
+  'delete /api/egresados/:id': 'EgresadoController.deleteEgresadobyId',
 
 
 };
