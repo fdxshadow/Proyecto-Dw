@@ -1,11 +1,7 @@
-
 module.exports.connections = {
-
-
   localDiskDb: {
     adapter: 'sails-disk'
   },
-
   someMysqlServer: {
     adapter:  'sails-mysql',
     host:     'localhost',
@@ -13,6 +9,4 @@ module.exports.connections = {
     password: '', //optional
     database: 'egresados' //optional
   },
-  
-
 };

@@ -60,18 +60,21 @@ module.exports = {
 		//ok
 	edit:function(req,res){
 		var param = { 
-			id : req.param('id')
+			id_empresa : parseInt(req.param('id'))
 		};
 		Company.findOne(param).exec(function(err,company){
+			console.log(err);			
 			if(err) return res.send(err);
 			else {
-				return res.view('editar',{company:company});
+				return res.view('editar',{company:[company]});
 			}
 		}) 
 	},
 	update:function(req,res){
-		Category.update(
-			{	id: req.param('id')}, 
+		console.log(req.param('nombre'))
+		console.log(parseInt(req.param('id_empresa')))
+		Company.update(
+			{	id_empresa: parseInt(req.param('id_empresa'))}, 
 			{	nombre: req.param('nombre'),
 				rut: req.param('rut'),
 				rubro: req.param('rubro'),
@@ -80,11 +83,13 @@ module.exports = {
 				especialidad: req.param('especialidad')
 			}
 			).exec(function(err, company){
-					if(err) return res.send(err);
-					else{
-						return res.redirect('/Empresa');
-					}
-				});
+				console.log(company)
+				console.log(err)
+				if(err) return res.send(err);
+				else{
+					return res.redirect('/Empresa');
+				}
+			});
 	},
 
 };

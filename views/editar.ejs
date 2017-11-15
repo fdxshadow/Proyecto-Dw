@@ -1,126 +1,131 @@
 <div class="container-fluid">
   <div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">Empresas</h3>
-  </div>
-  <div class="panel-body">
-  	
-<div class="container-fluid">
-	<div class="row">
-		<h1>Editar Empresa</h1>
-		<div class="col-md-12">
-			<form method="post" action="/Actualizar">
-				<input type="hidden" name="id_empresa" value="<%=company[0].id_empresa%>">
-				<div class="form-group">
-					<label>Nombre Empresa</label>
-					<input value="<%=company[0].nombre%>" type="text" class="form-control" name="nombre">
-				</div>
-				<div class="form-group">
-					<label>RUT</label>
-					<input value="<%=company[0].rut%>" type="text" class="form-control" name="rut">
-			    </div>
-			    <div class="form-group">
-			    	<label>Rubro Empresa</label>
-			    	<div class="form-group">
-			    		<select class="form-control" name="rubro">
-			    			<option value=" Agricultura, Ganadería, Caza y Silvicultura">
-			                  Agricultura, Ganadería, Caza y Silvicultura
-			                </option>
-			                <option value="Pesca">
-			                  Pesca
-			                </option>
-			                <option value="Explotación de Minas y Canteras ">
-			                  Explotación de Minas y Canteras 
-			                </option>
-			                <option value="Industrias Manufactureras No Metálicas">
-			                  Industrias Manufactureras No Metálicas
-			                </option>
-			                <option value="Suministro de Electricidad, Gas y Agua">
-			                  Suministro de Electricidad, Gas y Agua
-			                </option>
-			                <option value="Construcción">
-			                  Construcción
-			                </option>
-			                <option value="Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos">
-			                  Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos
-			                </option>
-			                <option value="Hoteles y Restaurantes ">
-			                  Hoteles y Restaurantes
-			                </option>
-			                <option value="Transporte, Almacenamiento y Comunicaciones">
-			                  Transporte, Almacenamiento y Comunicaciones
-			                </option>
-			                <option value="Intermediación Financiera ">
-			                  Intermediación Financiera
-			                </option>
-			                <option value="Actividades Inmobiliarias, Empresariales y de Alquiler">
-			                  Actividades Inmobiliarias, Empresariales y de Alquiler
-			                </option>
-			                <option value="Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria ">
-			                  Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria
-			                </option>
-			                <option value="Enseñanza">
-			                  Enseñanza
-			                </option>
-			                <option value="Servicios Sociales y de Salud">
-			                  Servicios Sociales y de Salud
-			                </option>
-			                <option value="Otras Actividades de Servicios Comunitarias, Sociales y Personales ">
-			                  Otras Actividades de Servicios Comunitarias, Sociales y Personales
-			                </option>
-			                <option value="Consejo de Administración de Edificios y Condominios ">
-			                  Consejo de Administración de Edificios y Condominios
-			                </option>
-			                <option value="Organizaciones y Órganos Extraterritoriales">
-			                  Organizaciones y Órganos Extraterritoriales
-			                </option>
-			              </select>
-			           <br>
-			       	</div>
-            	</div>
-           
-				<label>Prioridad</label>
-				<div class="form-group">
-					<select class="form-control" id="nota" name="prioridad">
-						<option value="1">1</option>
-	                	<option value="2">2</option>
-	                	<option value="3">3</option>
-	                	<option value="4">4</option>
-	                	<option value="5">5</option>
-	              	</select>
-	             	<br>
-	            </div>
-	            <label>Pais</label>
-	            <div class="form-group">
-	              	<select class="form-control" name="pais_origen">
-	              	  	<option value="Chile">Chile</option>
-	                	<option value="Argentina">Argentina</option>
-	                	<option value="Peru">Peru</option>
-	                	<option value="España">España</option>
-	                	<option value="EEUU">EEUU</option>
-	              	</select>
-	        		<br>
-	            </div>
+    <div class="panel-heading">
+      <h3 class="panel-title">Empresas</h3>
+    </div>
+    <div class="panel-body">
 
-	            <label>Especialidad</label>
-	            <div class="form-group">
-	            	<select class="form-control" name="especialidad">
-	                  	<option value="">Sin Asignar</option>
-	                  	<option value="software">Software</option>
-	                  	<option value="base de datos">Base de datos</option>
-	                  	<option value="redes">Redes</option>
-	                </select>
-	                <br>
-	            </div>
-		       	<div class="form-group" align="right">
-		       		<input type="submit" class="btn btn-success" name="editar" value="Guardar Cambio">
-		        	<a type="button" href="/" data-dismiss="modal" class="btn btn-danger" >Cancelar Cambio</a>
-		        </div>
-		    </form>
-       </div> 
-	</div>
-</div>
+      <div class="container-fluid">
+        <div class="row">
+          <h1>Editar Empresa</h1>
+          <div class="col-md-12">
+            <form method="post" action="/Actualizar">
+              <input type="hidden" name="id_empresa" value="<%=company[0].id_empresa%>">
+              <div class="form-group">
+                <label>Nombre Empresa</label>
+                <input value="<%=company[0].nombre%>" type="text" class="form-control" name="nombre">
+              </div>
+              <div class="form-group">
+                <label>RUT</label>
+                <input value="<%=company[0].rut%>" type="text" class="form-control" name="rut">
+              </div>
+              <div class="form-group">
+                <label>Rubro Empresa</label>
+                <div class="form-group">
+                  <select class="form-control" name="rubro">
+                    <option value="<%=company[0].rubro%>" selected>
+                      <%=company[0].rubro%>
+										</option>
+										<option value=" Agricultura, Ganadería, Caza y Silvicultura">
+                      Agricultura, Ganadería, Caza y Silvicultura
+                    </option>
+                    <option value="Pesca">
+                      Pesca
+                    </option>
+                    <option value="Explotación de Minas y Canteras ">
+                      Explotación de Minas y Canteras
+                    </option>
+                    <option value="Industrias Manufactureras No Metálicas">
+                      Industrias Manufactureras No Metálicas
+                    </option>
+                    <option value="Suministro de Electricidad, Gas y Agua">
+                      Suministro de Electricidad, Gas y Agua
+                    </option>
+                    <option value="Construcción">
+                      Construcción
+                    </option>
+                    <option value="Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos">
+                      Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos
+                    </option>
+                    <option value="Hoteles y Restaurantes ">
+                      Hoteles y Restaurantes
+                    </option>
+                    <option value="Transporte, Almacenamiento y Comunicaciones">
+                      Transporte, Almacenamiento y Comunicaciones
+                    </option>
+                    <option value="Intermediación Financiera ">
+                      Intermediación Financiera
+                    </option>
+                    <option value="Actividades Inmobiliarias, Empresariales y de Alquiler">
+                      Actividades Inmobiliarias, Empresariales y de Alquiler
+                    </option>
+                    <option value="Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria ">
+                      Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria
+                    </option>
+                    <option value="Enseñanza">
+                      Enseñanza
+                    </option>
+                    <option value="Servicios Sociales y de Salud">
+                      Servicios Sociales y de Salud
+                    </option>
+                    <option value="Otras Actividades de Servicios Comunitarias, Sociales y Personales ">
+                      Otras Actividades de Servicios Comunitarias, Sociales y Personales
+                    </option>
+                    <option value="Consejo de Administración de Edificios y Condominios ">
+                      Consejo de Administración de Edificios y Condominios
+                    </option>
+                    <option value="Organizaciones y Órganos Extraterritoriales">
+                      Organizaciones y Órganos Extraterritoriales
+                    </option>
+                  </select>
+                  <br>
+                </div>
+              </div>
 
+              <label>Prioridad</label>
+              <div class="form-group">
+                <select class="form-control" id="nota" name="prioridad">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+                <br>
+              </div>
+              <label>Pais</label>
+              <div class="form-group">
+                <select class="form-control" name="pais_origen">
+                  <option value="Chile">Chile</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Peru">Peru</option>
+                  <option value="España">España</option>
+                  <option value="EEUU">EEUU</option>
+                </select>
+                <br>
+              </div>
+
+              <label>Especialidad</label>
+              <div class="form-group">
+                <select class="form-control" name="especialidad">
+                  <option value="<%=company[0].especialidad%>" selected>
+										<%=company[0].especialidad%>
+									</option>
+                  <option value="software">Software</option>
+                  <option value="base de datos">Base de datos</option>
+                  <option value="redes">Redes</option>
+                </select>
+                <br>
+              </div>
+              <div class="form-group" align="right">
+                <input type="submit" class="btn btn-success" name="editar" value="Guardar Cambio">
+                <a type="button" href="/" data-dismiss="modal" class="btn btn-danger">Cancelar Cambio</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
-  </div>
