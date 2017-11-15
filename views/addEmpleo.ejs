@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+</head>
+
+<body>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-12" style="text-align:center">
+      <strong><i class="fa fa-info-circle"></i> En esta sección podra ver empleos de los egresados o ingresar un empleo.
+      Para ver alguna, seleccione una opción.</strong>
+    </div>
+    <br/><br/>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4" style="text-align:center">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">OPCIÓN</span>
+        <select onchange="cambiarPanel()" id="opcion" name "empresa" class="form-control" aria-describedby="basic-addon1">
+                  <option value="1">Ingreso empleo</option>
+                  <option value="2">Ver empleos</option>
+          </select>
+      </div>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+
+      <div class="panel-heading" style="text-align:center">FORMULARIO INGRESO EMPLEO</div>
+      <div class="panel-body">
+
+        <form class="form-horizontal" onsubmit="return validarCampos(); return false">
+          <div class="form-group">
+            <label class="col-lg-2 control-label" required>Nombre</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="nombre" name "nombre" placeholder="Ingrese nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Rut</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="rut" name "rut" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ingrese RUT">
+            </div>
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+              <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Empresa</label>
+            <div class="col-lg-10">
+              <select id="empresa" name "empresa" class="form-control" aria-describedby="basic4">
+                  <option value="0">Seleccione una empresa</option>
+                  <option value="1">Empresa 1</option>
+                  <option value="2">Empresa 2</option>
+                  <option value="3">Empresa 3</option>
+
+                </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Cargo</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="cargo" name "cargo" placeholder="Ingrese su cargo">
+            </div>
+          </div>
+
+          <!--<div class="form-group">
+            <label class="col-lg-2 control-label">Fecha inicio</label>
+            <div class="col-lg-10">
+              <input type="date" class="form-control" id="fechaInicio" name "fechaInicio" placeholder="Ingrese fecha inicio">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha termino</label>
+            <div class="col-lg-10">
+              <input type="date" class="form-control" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino">
+            </div>
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+              <i style="color:#b36511"><i class="fa fa-info-circle"></i> (Si es su trabajo actual, no ingrese fecha)</i>
+            </div>
+          </div>-->
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha inicio</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control texto" id="fechaInicio" name="fechaInicio" placeholder="Ingrese fecha inicio">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha termino</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control texto" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino">
+            </div>
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+              <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Si es su trabajo actual, no ingrese fecha)</i>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Rango Sueldo</label>
+            <div class="col-lg-10">
+              <select id="sueldo" name="sueldo" class="form-control" aria-describedby="basic4">
+                  <option value="0">Seleccione sueldo</option>
+                  <option value="1">menos de $500.000</option>
+                  <option value="2">$500.000 - $1.000.000</option>
+                  <option value="3">mas de $1.000.000</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label class="col-lg-2 control-label">Pais:</label>
+            <div class="col-lg-10">
+              <select id="pais" name="pais" class="form-control" aria-describedby="basic4" onchange="getPais()">
+                  <option value="0">Seleccione un país</option>
+                  <option value="1">Alemania</option>
+                  <option value="2">Argentina</option>
+                  <option value="3">Australia</option>
+                  <option value="4">Bélgica</option>
+                  <option value="5">Bolivia</option>
+                  <option value="6">Brazil</option>
+                  <option value="7">Canadá</option>
+                  <option value="8">Chile</option>
+                  <option value="9">España</option>
+                  <option value="10">Italia</option>
+                  <option value="11">Japón</option>
+                  <option value="12">Peru</option>
+                </select>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label for="ejemplo_password_3" class="col-lg-2 control-label">Ciudad:</label>
+            <div class="col-lg-10" id="inputComuna">
+              <input type="text" class="form-control" id="inputComunaSelect" name="comunaInput" placeholder="Escriba su ciudad">
+            </div>
+            <div class="col-lg-10" id="listaComuna">
+              <select id="listaComunaSelect" name="comunaLista" class="form-control" aria-describedby="basic4">
+                  <option value="0">Seleccione su ciudad</option>
+                  <option value="1">Arica</option>
+                  <option value="2">Calama</option>
+                  <option value="3">Copiapó</option>
+                  <option value="4">La serena</option>
+                  <option value="5">Rancagua</option>
+                  <option value="6">Valparaíso</option>
+                  <option value="7">Viña del Mar</option>
+                  <option value="8">Puerto Montt</option>
+                  <option value="3">Valdivia</option>
+                </select>
+            </div>
+          </div>
+
+          <div class="form-group" style="text-align:center">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar
+              </button>
+
+              <button type="reset" class="btn btn-primary">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar
+              </button>
+            </div>
+          </div>
+
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

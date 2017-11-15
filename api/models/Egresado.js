@@ -9,7 +9,7 @@ module.exports = {
 
   autoCreatedAt: false,
   autoUpdatedAt: false,
-  
+
   connection: 'someMysqlServer',
   tableName: 'egresado',
 
@@ -19,58 +19,59 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true
     },
-  	nombre:{
-  		type:'string',
+    nombre:{
+        type:'string',
       required:true
-  	},
-  	apellido:{
-  		type:'string',
+    },
+    apellido:{
+        type:'string',
       required:true
-  	},
-  	rut:{
-  		type: 'string',
+    },
+    rut:{
+        type: 'string',
       required:true,
       unique:true
-  	},
+    },
     año_ingreso:{
       type:'date',
       required:true
     },
     año_egreso:{
-    	type:'date',
+        type:'date',
       required:true
     },
     año_titulacion:{
-    	type:'date'
+        type:'date'
     },
     carrera:{
-    	type:'string',
+        type:'string',
       enum: ['ejecucion', 'informatica', 'civil'],
       required:true
     },
     postgrado:{
-    	type:'string',
+        type:'string',
       enum: ['magister', 'doctorado']
     },
     area_postgrado:{
-    	type:'string'
+        type:'string'
     },
     sat_carrera:{
-    	type:'string'
+        type:'string'
     },
     nota_carrera:{
-    	type:'float'
+        type:'float'
     },
     Cv:{
       type:'string',
       defaultsTo:'miArchivo'
     },
     linkedin:{
-    	type:'string'
+        type:'string'
     },
     nec_cap:{
-    	type:'string'
+        type:'string'
     }
   }
 
 };
+
