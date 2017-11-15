@@ -12,7 +12,7 @@ module.exports.routes = {
   'get /Ver/:id': 'CompanyController.view',
   'post /Actualizar': 'CompanyController.update',
 
-//MODULO EMPLEOS
+  //MODULO EMPLEOS
 
   '/inicioEmpleos': 'JobController.inicio',
   'post /getEgresados': 'JobController.getEgresados',
@@ -24,6 +24,8 @@ module.exports.routes = {
   'post /addSup': 'SupervisorController.addSupervisor',
   'post /buscarRut': 'SupervisorController.buscarRut',
   'post /addFormSuperv': 'SupervisorController.addSupervisor',
+  'post /getEmpleos': 'EmpleoController.getEmpleos',
+  '/listaEmpleos': 'EmpleoController.inicio',
 
   '/addSupervisor': {
     view: 'addSupervisor'
@@ -33,8 +35,7 @@ module.exports.routes = {
     view: 'addEmpleo'
   },
 
-
-//FIN MODULO EMPLEOS
+  //FIN MODULO EMPLEOS
 
   '/egresados': {
     view: 'egresados'

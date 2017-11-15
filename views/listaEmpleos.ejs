@@ -24,34 +24,32 @@
                 </div>
                 <div class="modal-body" data-backdrop="static" data-keyboard="false">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-striped ">
+                        <!--<table class="table table-bordered table-striped ">
                             <thead class="thead-default">
-<div class="input-group">
-<span class="input-group-addon">Egresado</span>
-
-
-            </select>
-                                <tr class="headerTablaModal">
-                                    <th>N°</th>
-                                    <th>Empresa</th>
-                                    <th>Pais</th>
-                                    <th>Comuna</th>
-                                    <th>Fecha inicio</th>
-                                    <th>Fecha termino</th>
-                                    <th>Cargo</th>
-                                    <th>Supervisor</th>
-                                    <th>Rango sueldo</th>
-                                </tr>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Egresado</span>
+                                    </select>
+                                    <tr class="headerTablaModal">
+                                        <th>N°</th>
+                                        <th>Empresa</th>
+                                        <th>Pais</th>
+                                        <th>Comuna</th>
+                                        <th>Fecha inicio</th>
+                                        <th>Fecha termino</th>
+                                        <th>Cargo</th>
+                                        <th>Supervisor 1</th>
+                                        <th>Supervisor 2</th>
+                                        <th>Supervisor 3</th>
+                                        <th>Rango sueldo</th>
+                                    </tr>
                             </thead>
                             <tbody>
                                 <tr>
-
-                                    
                                     <th scope="row">1</th>
-                                    
+
                                     <td>falta agregar el nombre de la bd</th>
-                                    
-                                    <td><span class=textoNegroPanel id=paisEmpleo></td>
+
+                                        <td><span class=textoNegroPanel id=paisEmpleo></td>
                                     <td>ciudad</td>
                                     <td class="texto-naranjo-negrita">inicio</td>
                                     <td class="texto-naranjo-negrita">termino</td>
@@ -63,6 +61,19 @@
                                  
                                 
                             </tbody>
+                        </table>-->
+
+                        <table style="width:100%" border="1" id="tablaModal" class="table table-bordered table-striped ">
+                            <tr class="headerTablaModal">
+                                <th>Empresa</th>
+                                <th>pais</th>
+                                <th>comuna</th>
+                                <th>Fecha inicio</th>
+                                <th>Fecha termino</th>
+                                <th>Cargo</th>
+                                <th>Rango sueldo</th>
+                            </tr>
+
                         </table>
 
 
@@ -79,30 +90,32 @@
 
     <br/>
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
 
-            </div>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
-                    <li role="presentation"><a href="/addSupervisor">Agregar Supervisor</a></li>
-                    <li class="active" role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+                </button>        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
+                <li role="presentation"><a href="/addSupervisor">Agregar Supervisor</a></li>
+                <li class="active" role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
+            </ul>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
 
     <br/>
 
@@ -135,23 +148,36 @@
                             <tr>
 
                                 <% _.each(egresados, function(egresado) { %>
-                                <th scope="row"><%= egresado.cont %></th>
-                                <td><%= egresado.nombreRut %></td>
-                                <td><%= egresado.Rut %></td>
-                                <td><%= egresado.carrera %></td>
-                                
-                                <td>
-                                    <button  type="button" id= egresado.id_egresado  class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos" onclick="getEmpleoSelect()" value= <%= egresado.id_egresado %> >
+                                    <th scope="row">
+                                        <%= egresado.cont %>
+                                    </th>
+                                    <td>
+                                        <%= egresado.nombreRut %>
+                                    </td>
+                                    <td>
+                                        <%= egresado.Rut %>
+                                    </td>
+                                    <td>
+                                        <%= egresado.carrera %>
+                                    </td>
 
-                                    <span class="fa fa-eye"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
+                                    <td>
+                                        <!--<button type="button" id=egresado.id_egresado class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos"
+                                            onclick="getEmpleoSelect('<%= egresado.id_egresado %>')" value=<%=egresado.id_egresado%>
+                                        </button>-->
+                                        <button type="button" id=egresado.id_egresado class="btn btn-info" title="ver empleos" onclick="getEmpleoSelect('<%= egresado.id_egresado %>')"
+                                            value=<%=egresado.id_egresado%>
+                                        </button>
+
+                                        <span class="fa fa-eye"></span>
+                                        </button>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
                                         <span class="fa fa-pencil-square-o"></span>
                                     </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
                                         <span class="fa fa-ban"></span>
                                     </button>
-                                </td>
+                                    </td>
                             </tr>
                             <% }) %>
 
@@ -161,6 +187,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
