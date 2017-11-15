@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Empresas</h3>
+  </div>
+  <div class="panel-body">
+  	
+	<div class="container-fluid">
+		<div class="row">
+			<h1> Empresa </h1>
+			<div class="col-md-12">
+				<form method="post" action="/Actualizar">
+						<h3>ID en sistema : </h3>
+						<label><%=company[0].id%></label>
+						<div class="form-group">
+							<h3>Nombre Empresa : </h3>
+							<label><%=company[0].name%></label>
+						</div>	
+						<div class="form-group">	
+							<h3>RUT : </h3>
+							<label><%=company[0].rut%></label>
+						</div>
+						<div class="form-group">
+							<h3>Rubro : </h3>
+							<label><%=company[0].item%></label>
+						</div>
+						<div class="form-group">
+							<h3>Pais : </h3>
+							<label><%=company[0].country%></label>
+						</div>
+						<div class="form-group">
+							<h3>Especialidad : </h3>
+							<label><%=company[0].specialty%></label>
+						</div>
+						<div class="form-group" align="right">
+							<a type="button" href="/" data-dismiss="modal" class="btn btn-success" >Volver</a>
+						</div>
+				</form>
+			</div> 
+		</div>
+	</div>
+	</div>
+	</div>
+</div>

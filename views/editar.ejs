@@ -1,0 +1,97 @@
+<div class="container-fluid">
+  <div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Empresas</h3>
+  </div>
+  <div class="panel-body">
+  	
+<div class="container-fluid">
+	<div class="row">
+		<h1>Editar Empresa</h1>
+		<div class="col-md-12">
+			<form method="post" action="/Actualizar">
+					<input type="hidden" name="id" value="<%=company[0].id%>">
+
+		        	<div class="form-group">
+			        	<label>Nombre Empresa</label>
+			        	<input value="<%=company[0].name%>" type="text" class="form-control" name="name">
+			        </div>	
+			        <div class="form-group">	
+			        	<label>RUT</label>
+			        	<input value="<%=company[0].rut%>" type="text" class="form-control" name="rut">
+			        </div>
+					<div class="form-group">
+						<label>Rubro</label>
+						<select class="form-control" value="<%=company[0].item%>" name="item">
+			                <option>Agricultura, Ganadería, Caza y Silvicultura </option>
+			                <option>Pesca </option>
+			                <option>Explotación de Minas y Canteras </option>
+			                <option>Industrias Manufactureras No Metálicas</option>
+			                <option>Industrias Manufactureras Metálicas </option>
+			                <option>Suministro de Electricidad, Gas y Agua </option>
+			                <option>Construcción </option>
+			                <option>Comercio al Por Mayor y Menor; Rep. Vehículos Automotores/Enseres Domésticos </option>
+			                <option>Hoteles y Restaurantes </option>
+			                <option>Transporte, Almacenamiento y Comunicaciones </option>
+			                <option>Intermediación Financiera </option>
+			                <option>Actividades Inmobiliarias, Empresariales y de Alquiler </option>
+			                <option>Adm. Pública y Defensa; Planes de Seg. Social, Afiliación Obligatoria </option>
+			                <option>Enseñanza </option>
+			                <option>Servicios Sociales y de Salud </option>
+			                <option>Otras Actividades de Servicios Comunitarias, Sociales y Personales </option>
+			                <option>Consejo de Administración de Edificios y Condominios </option>
+			                <option>Organizaciones y Órganos Extraterritoriales </option>
+			              </select>
+			              <br>
+			              <!--
+				        	  <input type="text" class="form-control" name="email">
+				        	-->
+						</div>
+						<!-- 
+							TO DO, falta hacer que guarde el cambio de prioridad 
+						-->
+						<label>Prioridad</label>
+							<div class="form-group">
+								<select class="form-control" value="<%=company[0].priority%>" id="nota" name="priority">
+									<option selected><%=company[0].priority%></option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+						</div>
+						<!-- 
+							END TO DO
+						-->
+						<label>Pais</label>
+            <div class="form-group">
+              <select class="form-control" name="country">
+								<option selected><%=company[0].country%></option>
+                <option>Chile</option>
+                <option>Argentina</option>
+                <option>Peru</option>
+                <option>España</option>
+                <option>EEUU</option>
+              </select>
+              <br>
+              <!--
+	        	  <input type="text" class="form-control" name="email">
+	        	-->
+            </div>
+            <label>Especialidad</label>
+            <div class="form-group">
+                <textarea class="form-control" rows="5" name="specialty"></textarea>
+            </div>
+		        	<div class="form-group" align="right">
+		        		<input type="submit" class="btn btn-success" name="editar" value="Guardar Cambio">
+		        		<a type="button" href="/" data-dismiss="modal" class="btn btn-danger" >Cancelar Cambio</a>
+		        	</div>
+		    </form>
+       </div> 
+	</div>
+</div>
+
+  </div>
+</div>
+  </div>

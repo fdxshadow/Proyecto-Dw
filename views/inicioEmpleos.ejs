@@ -1,0 +1,426 @@
+<!--<% _.each(empresas, function(empresa) { %>
+
+  <span> EMPRESA <%= empresa.rubro %></span>
+
+  <% }) %>-->
+
+<br/>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active" role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
+                <li role="presentation"><a href="/addSupervisor">Agregar Supervisor</a></li>
+                <li role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+<!--<div class="modal fade" id="SupervisorModal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header" style="text-align:center">
+        <strong class="modal-title">AGREGAR SUPERVISOR</strong>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label class="col-md-2 control-label">Nombre</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="nombreSup" name="nombreSup" placeholder="Ingrese nombre">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-md-2 control-label">Cargo</label>
+          <div class="col-md-10">
+            <input type="text" class="form-control" id="cargoSup" name="cargoSup" placeholder="Ingrese su cargo">
+          </div>
+        </div>
+
+
+        <div class="form-group" style="text-align:center">
+          <div class="col-md-12">
+            <a class="btn btn-warning btn-sm" onclick="probando()"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+            <button type="reset" class="btn btn-primary">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> LIMPIXXX
+              </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>-->
+
+
+<div id="SupervisorModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title" style="text-align:center">
+          <strong> Agregar supervisor </strong>
+        </div>
+      </div>
+      <div class="modal-body" data-backdrop="static" data-keyboard="false">
+
+        <form id="formulario" onsubmit="return validarFormSup()" action="/test" method="POST">
+
+          <div class="input-group" style="width:100%">
+            <span class="input-group-addon addonSup">Nombre</span>
+            <input onkeypress="return soloLetras(event)" onchange="validarNombreSup()" type="text" class="form-control" id="nombreSup"
+              name="nombreSup" placeholder="Ingrese su nombre" required>
+          </div>
+          <i style="color:red" id="errorNomSup" class="control-label"></i>
+
+          <br>
+          <br>
+          <div class="input-group" style="width:100%">
+            <span class="input-group-addon addonSup" id="basic-addon1">RUT</span>
+            <input onkeypress="return digitosRut(event);" class="form-control" id="rutSup" name="rutSup" onchange="validarRut()" required>
+          </div>
+          <i style="color:red" id="errorRutSup" class="control-label"></i>
+          <br/>
+          <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
+
+          <br>
+          <br>
+          <div class="input-group" style="width:100%">
+            <span class="input-group-addon addonSup" id="basic-addon1">Correo</span>
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="Username" aria-describedby="basic-addon1"
+              required>
+          </div>
+          <br>
+          <br>
+          <div class="input-group" style="width:100%">
+            <span class="input-group-addon addonSup" id="basic-addon1">Telefono</span>
+            <input onkeypress="return onlyNumbers(event);" id="telefono" name="telefono" class="form-control" placeholder="Username"
+              aria-describedby="basic-addon1" required>
+          </div>
+
+          <br/>
+          <div class="form-group" style="text-align:center">
+            <div class="col-md-12">
+
+              <button type="submit" class="btn btn-success" form="formulario">Aceptar
+                <i class="fa fa-check" aria-hidden="true"></i>
+              </button>
+
+              <button type="reset" class="btn btn-primary">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar
+              </button>
+            </div>
+          </div>
+
+          <br/>
+
+
+        </form>
+      </div>
+      <div class="modal-footer" style="text-align:center">
+
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    <i class="fa fa-undo" aria-hidden="true"></i> Volver</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="col-md-12" style="text-align:center">
+    <strong><i class="fa fa-info-circle"></i> En esta sección podra ingresar el empleo de un egresado registrado en el sistema</strong>
+  </div>
+  <br/><br/>
+  <!--<div class="col-md-4">
+  </div>
+  <div class="col-md-4" style="text-align:center">
+
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">OPCIÓN</span>
+      <select onchange="cambiarPanel()" id="opcion" name "empresa" class="form-control">
+                  <option value="1">Ingreso empleo</option>
+                  <option value="2">Ver empleos</option>
+          </select>
+    </div>
+
+  </div>
+  <div class="col-md-4">-->
+</div>
+
+
+<br/>
+
+<div class="col-md-12">
+
+
+  <div class="input-group">
+    <span class="input-group-addon">Egresado</span>
+
+    <select class="selectpicker form-control" data-show-subtext="true" data-live-search="true" onchange="getEgresadoSelect()"
+      id="egresadoSelect">
+
+          <option value="-1" selected disabled> Seleccionar un egresado</option>
+							   
+          <% _.each(egresados, function(egresado) { %>
+
+            <option value= <%= egresado.id_egresado %> > <%= egresado.nombreRut %> </option>
+
+            <% }) %>
+
+			</select>
+
+    <!--<select multiple class="selectpicker" data-show-subtext="true" data-live-search="true">
+        <option data-subtext="Rep California">Tom Foolery</option>
+        <option data-subtext="Sen California">Bill Gordon</option>
+        <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+        <option data-subtext="Rep Alabama">Mario Flores</option>
+        <option data-subtext="Rep Alaska">Don Young</option>
+        <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+      </select>-->
+
+  </div>
+
+  <br/>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-info bordeInfoEmpleado">
+
+        <div class="panel-heading infoEmpleadoHeader" style="text-align:center"><i class="fa fa-2x fa-user colorIconoAzul" aria-hidden="true"></i></div>
+        <div class="panel-body infoEmpleado">
+
+          <div class="row">
+            <div class="col-md-12"> <strong class="textoAzulPanel"> Nombre: </strong> <span class=textoNegroPanel id=nombreEgresado> </span> </div>
+            <div class="col-md-12"><strong class="textoAzulPanel"> Rut: </strong> <span class=textoNegroPanel id=rutEgresado> </span> </div>
+            <div class="col-md-12"> <strong class="textoAzulPanel">Carrera: </strong> <span class=textoNegroPanel id=carreraEgresado> </span> </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="panel panel-info bordeInfoEmpleado">
+
+        <div class="panel-heading infoEmpleadoHeader" style="text-align:center"><i class="fa fa-2x fa-graduation-cap colorIconoAzul" aria-hidden="true"></i></div>
+        <div class="panel-body infoEmpleado">
+
+          <div class="row">
+
+            <div class="col-md-12"> <strong class="textoAzulPanel">Año ingreso: </strong> <span class=textoNegroPanel id=ingresoEgresado> </span>              </div>
+            <div class="col-md-12"> <strong class="textoAzulPanel">Año egreso: </strong> <span class=textoNegroPanel id=egresoEgresado> </span> </div>
+            <div class="col-md-12"> <strong class="textoAzulPanel">Año titulación: </strong><span class=textoNegroPanel id=titulacionEgresado> </span>              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+<div class="col-md-12">
+  <div class="panel panel-primary">
+
+    <div class="panel-heading" style="text-align:center">FORMULARIO INGRESO EMPLEO</div>
+    <div class="panel-body">
+
+      <div class="form-horizontal">
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Empresa</label>
+          <div class="col-lg-10">
+
+            <select id="empresa" class="selectpicker form-control" data-show-subtext="true" data-live-search="true" onchange="habDesBoton()">
+
+                  <option value="0" selected disabled> Seleccionar una empresa</option>
+                        
+                  <% _.each(empresas, function(empresa) { %>
+
+                    <option data-subtext="Especialidad <%= empresa.especialidad %> " value= <%= empresa.id_empresa %> > <%= empresa.nombre %> - <%= empresa.rut %></option>
+
+                    <% }) %>
+
+              </select>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Supervisor</label>
+          <div class="col-lg-10">
+
+            <select multiple id="supervSelect" class="selectpicker form-control" title="Seleccione supervisores" data-show-subtext="true"
+              data-live-search="true" data-max-options="3">
+                        
+                  <% _.each(supervisores, function(supervisor) { %>
+
+                    <option value=<%= supervisor.id_supervisor %> > <%= supervisor.nombre %> - <%= supervisor.rut %> </option>
+
+                    <% }) %>
+
+              </select>
+          </div>
+          <div class="col-lg-2"> </div>
+          <div class="col-lg-10">
+            <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i>Puede seleccionar hasta 3 supervisores.</i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Cargo</label>
+          <div class="col-lg-10">
+            <input onkeypress="return soloLetrasNumeros(event)" onchange="habDesBoton()" type="text" class="form-control" id="cargo"
+              name "cargo" placeholder="Ingrese su cargo">
+          </div>
+        </div>
+
+        <!--<div class="form-group">
+            <label class="col-lg-2 control-label">Fecha inicio</label>
+            <div class="col-lg-10">
+              <input type="date" class="form-control" id="fechaInicio" name "fechaInicio" placeholder="Ingrese fecha inicio">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-2 control-label">Fecha termino</label>
+            <div class="col-lg-10">
+              <input type="date" class="form-control" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino">
+            </div>
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-10">
+              <i style="color:#b36511"><i class="fa fa-info-circle"></i> (Si es su trabajo actual, no ingrese fecha)</i>
+            </div>
+          </div>-->
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Fecha inicio</label>
+          <div class="col-lg-10">
+            <input onchange="habDesBoton()" type="text" class="form-control texto" id="fechaInicio" name="fechaInicio" placeholder="Ingrese fecha inicio">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Fecha termino</label>
+          <div class="col-lg-10">
+            <input onchange="verificarFecha()" type="text" class="form-control texto" id="fechaTermino" name="fechaTermino" placeholder="Ingrese fecha termino">
+          </div>
+          <label class="col-lg-2 control-label"></label>
+          <div class="col-lg-10">
+            <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> Debe ser mayor a la fecha de inicio (Si es su trabajo
+            actual, no ingrese fecha)</i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Rango Sueldo</label>
+          <div class="col-lg-10">
+            <select onchange="habDesBoton()" id="sueldo" name="sueldo" class="form-control">
+                  <option value="0" selected disabled>Seleccione sueldo</option>
+                  <option value="menos de $500.000">menos de $500.000</option>
+                  <option value="$500.000 - $1.000.000">$500.000 - $1.000.000</option>
+                  <option value="mas de $1.000.000">mas de $1.000.000</option>
+                </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+
+          <label class="col-lg-2 control-label">Pais:</label>
+          <div class="col-lg-10">
+            <select onchange="habDesBoton()" id="pais" name="pais" class="form-control">
+                  <option value="0" selected disabled>Seleccione un país</option>
+                  <option value="Alemania">Alemania</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Australia">Australia</option>
+                  <option value="Bélgica">Bélgica</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Canadá">Canadá</option>
+                  <option value="Chile">Chile</option>
+                  <option value="España">España</option>
+                  <option value="Italia">Italia</option>
+                  <option value="Japón">Japón</option>
+                  <option value="Peru">Peru</option>
+                </select>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="ejemplo_password_3" class="col-lg-2 control-label">Ciudad:</label>
+          <div onchange="habDesBoton()" class="col-lg-10" id="inputComuna">
+            <input onkeypress="return soloLetras(event)" onchange="habDesBoton()" type="text" class="form-control" id="inputComunaSelect"
+              name="comunaInput" placeholder="Escriba su ciudad">
+          </div>
+          <div class="col-lg-10" id="listaComuna">
+            <select onchange="habDesBoton()" id="listaComunaSelect" name="listaComunaSelect" class="form-control">
+                  <option value="0" selected disabled>Seleccione su ciudad</option>
+                  <option value="Arica">Arica</option>
+                  <option value="Calama">Calama</option>
+                  <option value="Copiapo">Copiapó</option>
+                  <option value="La serena">La serena</option>
+                  <option value="Rancagua">Rancagua</option>
+                  <option value="Valparaiso">Valparaíso</option>
+                  <option value="Viña del Mar">Viña del Mar</option>
+                  <option value="Puerto Montt">Puerto Montt</option>
+                  <option value="Valdivia">Valdivia</option>
+                </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="text-align:center">
+          <div class="col-md-12">
+            <!--<button type="submit" class="btn btn-success">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar
+              </button>-->
+
+            <button onclick="enviarForm()" id="botonEnviar" class="btn btn-success">
+              <i class="fa fa-paper-plane" aria-hidden="true"></i> Enviar
+            </button>
+
+            <button onclick="limpiar()" class="btn btn-primary">
+                <i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar
+              </button>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
