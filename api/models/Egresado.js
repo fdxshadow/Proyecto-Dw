@@ -33,15 +33,15 @@ module.exports = {
       unique:true
     },
     año_ingreso:{
-      type:'date',
+      type:'integer',
       required:true
     },
     año_egreso:{
-        type:'date',
+        type:'integer',
       required:true
     },
     año_titulacion:{
-        type:'date'
+        type:'integer'
     },
     carrera:{
         type:'string',
