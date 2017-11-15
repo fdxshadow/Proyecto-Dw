@@ -13,6 +13,5 @@ module.exports.connections = {
     password: '', //optional
     database: 'egresados' //optional
   },
-  
 
 };
