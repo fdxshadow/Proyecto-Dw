@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+
 var rut = require('../services/rut');
 
 module.exports = {
@@ -102,4 +103,5 @@ module.exports = {
             return res.send(egresado);
         });
     }
+
 };
