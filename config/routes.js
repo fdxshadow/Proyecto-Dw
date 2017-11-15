@@ -37,14 +37,12 @@ module.exports.routes = {
 
   //FIN MODULO EMPLEOS
 
-  '/egresados': {
-    view: 'egresados'
-  },
-  'get /api/egresados': 'EgresadoController.getEgresados',
-  'get /api/egresados/:id': 'EgresadoController.getEgresadosbyId',
-  'post /api/egresados': 'EgresadoController.createEgresado',
-  'put /api/egresados': 'EgresadoController.updateEgresado',
-  'delete /api/egresados/:id': 'EgresadoController.deleteEgresadobyId',
+  '/': { view: 'homepage' },
+  '/egresados':'EgresadoController.showList',
+  '/egresados/create':'EgresadoController.createEgresado',
+  '/egresados/readById/:id':'EgresadoController.readEgresadoById',
+  '/egresados/update/:id':'EgresadoController.updateEgresado',
+  '/egresados/delete/:id':'EgresadoController.deleteEgresado'
 
 
 };

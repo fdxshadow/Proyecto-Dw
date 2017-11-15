@@ -20,26 +20,26 @@
 --
 
 DROP TABLE IF EXISTS `egresado`;
-/*!40101 SET @saved_cs_client    = @@character_set_client */;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `egresado` (
   `id_egresado` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `apellido` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `año_ingreso` int(4) NOT NULL,
-  `año_egreso` int(4) NOT NULL,
-  `año_titulacion` int(4) DEFAULT NULL,
-  `carrera` enum('ejecucion','informatica','civil') COLLATE utf8_spanish_ci NOT NULL,
-  `nec_cap` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `rut` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `año_ingreso` date NOT NULL,
+  `año_egreso` date NOT NULL,
+  `año_titulacion` date DEFAULT NULL,
+  `carrera` enum('Ejecucion','Informatica','Civil') COLLATE utf8_spanish_ci NOT NULL,
+  `postgrado` enum('Magister','Doctorado') COLLATE utf8_spanish_ci DEFAULT NULL,
+  `area_postgrado` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
   `sat_carrera` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `nota_carrera` float(2,1) DEFAULT NULL,
+  `cv` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `linkedin` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `postgrado` enum('magister','doctorado') COLLATE utf8_spanish_ci DEFAULT NULL,
-  `area_postgrado` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `Cv` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `rut` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nec_cap` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   PRIMARY KEY (`id_egresado`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
