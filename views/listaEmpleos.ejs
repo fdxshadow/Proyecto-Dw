@@ -26,6 +26,11 @@
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped ">
                             <thead class="thead-default">
+<div class="input-group">
+<span class="input-group-addon">Egresado</span>
+
+
+            </select>
                                 <tr class="headerTablaModal">
                                     <th>N°</th>
                                     <th>Empresa</th>
@@ -40,29 +45,23 @@
                             </thead>
                             <tbody>
                                 <tr>
+
+                                    
                                     <th scope="row">1</th>
-                                    <td>Disico</td>
-                                    <td>Chile</td>
-                                    <td>Valparaíso</td>
-                                    <td class="texto-naranjo-negrita">10/10/2012</td>
-                                    <td class="texto-naranjo-negrita">15/02/2017</td>
-                                    <td>Desarrollador web</td>
-                                    <td>Juan Roman - 18.444.333-1</td>
-                                    <td>Sobre $1.000.000 </td>
+                                    
+                                    <td>falta agregar el nombre de la bd</th>
+                                    
+                                    <td><span class=textoNegroPanel id=paisEmpleo></td>
+                                    <td>ciudad</td>
+                                    <td class="texto-naranjo-negrita">inicio</td>
+                                    <td class="texto-naranjo-negrita">termino</td>
+                                    <td>cargo</td>
+                                    <td>supervisor</td>
+                                    <td>sueldo</td>
 
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Cencosud</td>
-                                    <td>Chile</td>
-                                    <td>Maipu</td>
-                                    <td class="texto-naranjo-negrita">25/04/2018</td>
-                                    <td class="texto-limon-negrita">Trabajo actual</td>
-                                    <td>Jefe area base de datos</td>
-                                    <td>Cristian Quezada - 11.222.343-1</td>
-
-                                    <td>Sobre $1.000.000 </td>
-                                </tr>
+                                 
+                                
                             </tbody>
                         </table>
 
@@ -86,13 +85,18 @@
             <div class="navbar-header">
 
             </div>
-
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
                     <li role="presentation"><a href="/addSupervisor">Agregar Supervisor</a></li>
-                    <li role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
+                    <li class="active" role="presentation"><a href="/listaEmpleos">Ver empleos</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -129,13 +133,17 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Ivette León Faune</td>
-                                <td>11.234.567-3</td>
-                                <td>Ingeniería Civil Informática</td>
+
+                                <% _.each(egresados, function(egresado) { %>
+                                <th scope="row"><%= egresado.cont %></th>
+                                <td><%= egresado.nombreRut %></td>
+                                <td><%= egresado.Rut %></td>
+                                <td><%= egresado.carrera %></td>
+                                
                                 <td>
-                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
-                                        <span class="fa fa-eye"></span>
+                                    <button  type="button" id= egresado.id_egresado  class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos" onclick="getEmpleoSelect()" value= <%= egresado.id_egresado %> >
+
+                                    <span class="fa fa-eye"></span>
                                     </button>
                                     <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
                                         <span class="fa fa-pencil-square-o"></span>
@@ -145,40 +153,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Cristian Rojas</td>
-                                <td>18.455.432-5</td>
-                                <td>Ingeniería Informática</td>
-                                <td>
-                                    <button value="Cristian Rojas" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
-                                        <span class="fa fa-eye"></span>
-                                        </button>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
-                                        <span class="fa fa-pencil-square-o"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
-                                        <span class="fa fa-ban"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Juan Ignacio Parra</td>
-                                <td>18.111.432-5</td>
-                                <td>Ingeniería Civil Informática</td>
-                                <td>
-                                    <button value="Juan Ignacio Parra" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" title="ver empleos">
-                                        <span class="fa fa-eye"></span>
-                                        </button>
-                                    <button type="button" class="btn btn-success" data-toggle="modal" title="editar">
-                                        <span class="fa fa-pencil-square-o"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" title="eliminar">
-                                        <span class="fa fa-ban"></span>
-                                    </button>
-                                </td>
-                            </tr>
+                            <% }) %>
 
                         </tbody>
                     </table>

@@ -19,7 +19,7 @@ module.exports.routes = {
   'post /getEgresadoSelect': 'JobController.getEgresadoSelect',
   'post /getRutSupervisor': 'SupervisorController.buscarRut',
   'post /addEmpleo': 'JobController.addEmpleo',
-  
+  '/listaEmpleos':'EmpleoController.inicio',
   'post /getSupervisores': 'SupervisorController.getSupervisores',
   'post /addSup': 'SupervisorController.addSupervisor',
   'post /buscarRut': 'SupervisorController.buscarRut',
@@ -32,9 +32,7 @@ module.exports.routes = {
   '/addEmpleo': {
     view: 'addEmpleo'
   },
-  '/listaEmpleos': {
-    view: 'listaEmpleos'
-  },
+
 
 //FIN MODULO EMPLEOS
 
