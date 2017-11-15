@@ -4,6 +4,7 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  
   '/Empresa': 'CompanyController.mostrar',
   'post /Agregar': 'CompanyController.create',
   'get /Eliminar/:id': 'CompanyController.delete',
@@ -19,7 +20,6 @@ module.exports.routes = {
   'post /getRutSupervisor': 'SupervisorController.buscarRut',
   'post /addEmpleo': 'JobController.addEmpleo',
   '/listaEmpleos':'EmpleoController.inicio',
-
   'post /getSupervisores': 'SupervisorController.getSupervisores',
   'post /addSup': 'SupervisorController.addSupervisor',
   'post /buscarRut': 'SupervisorController.buscarRut',
