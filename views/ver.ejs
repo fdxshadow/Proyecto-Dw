@@ -1,4 +1,5 @@
 <div class="container-fluid">
+	<br>
   <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Empresas</h3>
@@ -11,10 +12,10 @@
 			<div class="col-md-12">
 				<form method="post" action="/Actualizar">
 						<h3>ID en sistema : </h3>
-						<label><%=company[0].id%></label>
+						<label><%=company[0].id_empresa%></label>
 						<div class="form-group">
 							<h3>Nombre Empresa : </h3>
-							<label><%=company[0].name%></label>
+							<label><%=company[0].nombre%></label>
 						</div>	
 						<div class="form-group">	
 							<h3>RUT : </h3>
@@ -22,18 +23,18 @@
 						</div>
 						<div class="form-group">
 							<h3>Rubro : </h3>
-							<label><%=company[0].item%></label>
+							<label><%=company[0].rubro%></label>
 						</div>
 						<div class="form-group">
 							<h3>Pais : </h3>
-							<label><%=company[0].country%></label>
+							<label><%=company[0].pais_origen%></label>
 						</div>
 						<div class="form-group">
 							<h3>Especialidad : </h3>
-							<label><%=company[0].specialty%></label>
+							<label><%=company[0].especialidad%></label>
 						</div>
 						<div class="form-group" align="right">
-							<a type="button" href="/" data-dismiss="modal" class="btn btn-success" >Volver</a>
+							<a type="button" href="/Empresa" data-dismiss="modal" class="btn btn-success" >Volver</a>
 						</div>
 				</form>
 			</div> 

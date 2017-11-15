@@ -49,8 +49,9 @@ que habilita las opciones de campó de postgrado.
 Finalmente, los campos 'Satisfacción con la Carrera', 'Nota Satisfacción', 'Curriculum Vitae', 'Linkedin' y 'Necesidad Capacitación' no
 son necesarios para la validación, lo que implica que, finalmente el formulario está completado y listo para poder enviar con la función 'POST'.
 
+
 ##################################################
-###  		Documentación de hito 1 - Empleos           ### 
+###  		Documentación de hito 1 - Empleos.          ### 
 ##################################################
 
 ##agregar de test
