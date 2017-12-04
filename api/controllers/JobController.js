@@ -1,4 +1,7 @@
+var valida = require('../services/valida.service');
+
 var egresadosGlobal = [];
+
 
 module.exports = {
     inicio: function (req, res) {
@@ -71,7 +74,10 @@ module.exports = {
         });
     },
 
-    addEmpleo: function (req, res) {
+
+    //VALIDACIONES BACK
+
+    create: function (req, res) {
 
         var param = req.body;
 
@@ -90,13 +96,37 @@ module.exports = {
         var fechasInicio = param.fechaInicio.split("/");
         var fechaInicio = fechasInicio[2].toString() + '-' + fechasInicio[1].toString() + '-' + fechasInicio[0].toString();
 
-        var query = "INSERT INTO empleo VALUES(null,'" + param.egresadoSelect + "', ' " + param.empresa + "' ,  " + sup1 + " ,  " + sup2 + " , " + sup3 + " , ' " + fechaInicio + "', '" + fechaTermino + "' ,'" + param.pais + "','" + param.comuna + "','" + param.cargo + "','" + param.sueldo + "')";
+        var datos = {
+            id_egresado: param.egresadoSelect,
+            id_empresa: param.empresa,
+            id_supervisor1: sup1,
+            id_supervisor2: sup2,
+            id_supervisor3: sup3,
+            fecha_inicio: fechaInicio,
+            fecha_termino: fechaTermino,
+            pais: param.pais,
+            comuna_ciudad: param.comuna,
+            cargo: param.cargo,
+            rango_sueldo: param.sueldo
+        }
 
-        Job.query(query, [], function (err, resp) {
-            if (err) { return res.serverError(err); }
+        if (fechasTermino != null) {
+            if (fechaTermino > fechaInicio) {
+                Job.create(datos).exec(function (err, resp) {
+                    if (err) { return res.serverError(err); }
+                    return res.ok(resp);
+                });
+            }
+            else {
+                return res.serverError("La fecha de termino debe ser mayor a la actual");
+            }
+        } else {
 
-            return res.ok(resp);
-        });
+            Job.create(datos).exec(function (err, resp) {
+                if (err) { return res.serverError(err); }
+                return res.ok(resp);
+            });
+        }
 
     },
 

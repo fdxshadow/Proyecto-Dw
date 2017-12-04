@@ -1,3 +1,4 @@
+var valida = require('../services/valida.service');
 
 module.exports = {
 
@@ -9,11 +10,14 @@ module.exports = {
         });
     },
 
+
+    //VALIDACIONES BACK
+
     addSupervisor: function (req, res) {
 
         var datos = req.body;
+
         var param = {
-            //id_supervisor: ,
             nombre: datos.nombreSup,
             rut: datos.rutSup,
             correo: datos.correo,
@@ -21,17 +25,23 @@ module.exports = {
             nota: datos.nota
         }
 
-        Supervisor.create(param).exec(function (err, data) {
-            if (err) console.log(err);
-            res.send(data);
-        });
+        var status = valida.validaRut(datos.rutSup); //valida RUT con el servicio
+
+        if (status.value == 1) { //esta correcto
+            Supervisor.create(param).exec(function (err, data) {
+                if (err) res.serverError (err);
+                res.send(data);
+            });
+        }
+        else {
+            res.serverError(status.mensaje);
+        }
 
     },
 
     buscarRut: function (req, res) {
 
         var rut = req.body.rut;
-
         Supervisor.find({ rut: rut }).exec(function (err, supervisorRut) {
             if (err) {
                 return res.serverError(err);
