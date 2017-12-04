@@ -1,14 +1,57 @@
-<!-- Default home page -->
-<div class="default-page">
-  <div class="main container clearfix">
-    <!-- <h1>Getting started</h1>
-    <p>Don't worry, we've got your back.</p> -->
-    <ul class="getting-started">
-      <li class="clearfix">
-        <div class="step">
-          <h3>Sistema Egresado - Desarrollo Web</h3>
+<br/>
+
+<div class="panel panel-primary" style="border:1px solid #bdd1e2">
+
+    <div class="panel-heading headerPanelMenu" style="text-align:center">MENU PRINCIPAL</div>
+    <div class="panel-body">
+
+        <div class="row">
+
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-center">
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-center boton" onclick="ir('inicioEmpleos')" title="ver empleos" style="padding: 60px;">
+                <i class="fa-4x fa fa-briefcase"></i>
+
+            </div>
+
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-center">
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-center boton" onclick="ir('egresados')" title="ver egresados" style="padding: 60px;">
+                <i class="fa-4x fa fa-users "></i>
+
+            </div>
+
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-center">
+            </div>
+
+
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-center boton" onclick="ir('Empresa')" title="ver empresas" style="padding: 60px;">
+                <i class="fa-4x fa fa-institution"></i>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6 text-center">
+                <br/>
+            </div>
+
+            <div class="col-lg-1 col-md-2 col-sm-6 col-xs-6 text-center">
+            </div>
+
+            <div class="col-lg-2 col-md-2 col-sm-6 col-xs-6 text-center boton" onclick="ir('/')" title="ver reportes" style="padding: 60px;">
+                <i class="fa-4x fa fa-bar-chart-o"></i>
+            </div>
+
         </div>
-      </li>
-    </ul>
-  </div>
+
+    </div>
 </div>
+
+
+
+<script>
+    function ir(url) {
+        window.location.href = "/" + url;
+    }
+
+</script>
