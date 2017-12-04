@@ -1,0 +1,48 @@
+.headerPanelMenu{
+    background-color: #bdd1e2   !important;
+    background: #bdd1e2  !important;
+    border: 1px solid #bdd1e2 !important;
+}
+
+.fondoMenu{
+    background-color: #7092af   !important;
+    background: #7092af  !important;
+}
+
+.itemMenu{
+    background-color: #7092af   !important;
+}
+
+.itemMenu a{
+    color: white !important;
+}
+
+.itemMenu a:hover{
+    background: #33648e  !important;
+    color: black !important;
+}
+
+.sidebar ul li a.active {
+    background-color: white !important;
+    color:#33648e !important;
+}
+
+.boton {
+    background-color: white !important;
+    background-size: 60%; /* Tamaño de la imagen */
+    border: 2px solid #548db3;
+    height: 200px;  /* Alto del botón */
+    width: 200px;  /* Ancho del botón */
+    display: table;
+    border-radius: 100%;
+    cursor: pointer;
+    box-shadow:
+    /* Sombras externa */
+    inset 0 10px 15px rgba(255,255,255,.35), inset 0 -10px 15px rgba(0,0,0,.05), inset 10px 0 15px rgba(0,0,0,.05), inset -10px 0 15px rgba(0,0,0,.05),
+    /* Sombra interna */
+    0 5px 20px rgba(0,0,0,.1);
+}
+
+.boton:hover{
+  background-color: #548db3 !important;
+}
