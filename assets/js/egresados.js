@@ -16,34 +16,6 @@ $(document).ready(function() {
   	$('i').hover(function() {
         $(this).css('cursor','pointer');
     });
-    $('.fa-trash-o').click(function(event){
-      swal({
-        title: '¿Estás seguro?',
-        text: "No podrás revertir ésto!",
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar!',
-        cancelButtonText: 'No, cancelar!',
-        confirmButtonClass: 'btn btn-success',
-        cancelButtonClass: 'btn btn-danger'
-      }).then(function () {
-        swal(
-          'Eliminado!',
-          'Se ha eliminado un egresado',
-          'success'
-        )
-      }, function (dismiss) {
-        if (dismiss === 'cancel') {
-          swal(
-            'Cancelado',
-            'No se ha eliminado',
-            'error'
-          )
-        }
-      })
-    });
 
   $.formUtils.addValidator({
     name : 'rutFormato',
@@ -80,3 +52,86 @@ $(document).ready(function() {
     modules: 'html5, date'
   })
 });
+function eliminar(id){
+  swal({
+    title: '¿Estás seguro?',
+    text: "No podrás revertir ésto!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, eliminar!',
+    cancelButtonText: 'No, cancelar!',
+    confirmButtonClass: 'btn btn-success',
+    cancelButtonClass: 'btn btn-danger'
+  }).then(function () {
+    document.location = "/egresados/delete/"+id;
+  }, function (dismiss) {
+    if (dismiss === 'cancel')
+      swal(
+        'Cancelado',
+        'No se ha eliminado',
+        'error'
+      );
+  });
+}
+function ver(id){
+  $.get("/egresados/readById/"+id, function(data) {
+    data[0].postgrado = data[0].postgrado!==null?data[0].postgrado:"";
+    data[0].area_postgrado = data[0].area_postgrado!==null?data[0].area_postgrado:"";
+    data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:"";
+    data[0].cv = data[0].cv!==null?data[0].cv:"";
+    data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:"";
+    data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:"";
+    $("span[name='verNombre']").each(function(){
+      $(this).html(data[0].nombre + " " + data[0].apellido);
+    });
+    $("span[name='verRut']").html(data[0].rut);
+    $("span[name='verIngreso']").html(data[0].año_ingreso);
+    $("span[name='verEgreso']").html(data[0].año_egreso);
+    $("span[name='verTitulacion']").html(data[0].año_titulacion);
+    $("span[name='verCarrera']").html(data[0].carrera);
+    $("span[name='verPostgrado']").html(data[0].postgrado);
+    $("span[name='verAreaPostgrado']").html(data[0].area_postgrado);
+    $("span[name='verSatisfaccion']").html(data[0].sat_carrera);
+    $('#notaFix').barrating('set',data[0].nota_carrera);
+    $('#notaFix').barrating('readonly',true);
+    $("span[name='verCV']").html(data[0].cv);
+    $("span[name='verLinkedin']").html(data[0].linkedin);
+    $("div[name='verCapacitacion']").css({overflow:"auto",height:"80px"});
+    $("div[name='verCapacitacion'] span").html(data[0].nec_cap);
+  });
+}
+function formModal(id){
+  if(id===-1){
+    $("#tituloFormModal").html("Nuevo egresado");
+    $("#formulario-egresados").trigger("reset");
+    $("#formulario-egresados").attr("action","/egresados/create");
+  }else{
+    $.get("/egresados/readById/"+id, function(data) {
+      $("#formulario-egresados").attr("action","/egresados/update/"+id);
+      $("#tituloFormModal").html(data[0].nombre + " " + data[0].apellido);
+      data[0].carrera = data[0].carrera==="ejecucion"?1:data[0].carrera==="informatica"?2:3;
+      data[0].postgrado = data[0].postgrado==="magister"?1:data[0].postgrado==="doctorado"?2:0;
+      data[0].area_postgrado = data[0].area_postgrado==="Informatica"?1:data[0].area_postgrado==="Negocio"?2:data[0].area_postgrado==="Otros"?3:0;
+      data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:"";
+      data[0].cv = data[0].cv!==null?data[0].cv:"";
+      data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:"";
+      data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:"";
+      $("#nombre").val(data[0].nombre);
+      $("#apellido").val(data[0].apellido);
+      $("#rut").val(data[0].rut);
+      $("#ingreso").val(data[0].año_ingreso);
+      $("#egreso").val(data[0].año_egreso);
+      $("#titulacion").val(data[0].año_titulacion);
+      $("#carrera").val(data[0].carrera);
+      $("#postgrado").val(data[0].postgrado);
+      $("#a_postgrado").val(data[0].area_postgrado);
+      $("#satisfaccion").val(data[0].sat_carrera);
+      $('#nota').barrating('set',data[0].nota_carrera);
+      $("#cv").val(null);
+      $("#linkedin").val(data[0].linkedin);
+      $('#capacitacion').val(data[0].nec_cap);
+    });
+  }
+}

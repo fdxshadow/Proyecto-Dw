@@ -1,50 +1,51 @@
 <div class="panel panel-default panel-primary" style="margin-top:15px;">
   	<div class="panel-heading">Lista de egresados</div>
   	<div class="panel-body">
-  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar egresado</button>	
+  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="formModal(-1)"">Agregar egresado</button>	
   		<table class="table table-striped">
       		<thead>
         		<tr>
           			<th>Nombre</th>
-		          	<th>Apellido</th>
-		          	<th>Email</th>
+		          	<th>Rut</th>
+		          	<th>Carrera</th>
 		          	<th>Opciones</th>
 		        </tr>
       		</thead>
       		<tbody>
-				<tr>
-					<td>Cristian</td>
-					<td>Rojas</td>
-					<td>cristian.rojas@alumnos.uv.cl</td>
-					<td>
-						<div class="row" align="center">
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<i class="fa fa-search fa-lg"  data-toggle="modal" data-target="#detalle"></i>
+      			<% _.each(egresados, function(egresado) { %>
+      				<tr>
+						<td><%= egresado.nombre %> <%= egresado.apellido %></td>
+						<td><%= egresado.rut %></td>
+						<td><%= egresado.carrera %></td>
+						<td>
+							<div class="row" align="center">
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<i class="fa fa-search fa-lg"  data-toggle="modal" data-target="#detalle" onclick="ver(<%=egresado.id_egresado%>)"></i>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<i class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal" onclick="formModal(<%=egresado.id_egresado%>)"></i>
+								</div>
+								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+									<i class="fa fa-trash-o fa-lg" onclick="eliminar(<%=egresado.id_egresado%>)"></i>
+								</div>
 							</div>
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<i class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal"></i>
-							</div>
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-								<i class="fa fa-trash-o fa-lg"></i>
-							</div>
-						</div>
-					</td>
-				</tr>
+						</td>
+					</tr>
+				<% }) %>	
 			</tbody>
     	</table>
   	</div>
 </div>
-
 <div id="myModal" class="modal fade" role="dialog">
   	<div class="modal-dialog modal-lg">
   	<!-- Modal content-->
     	<div class="modal-content">
       		<div class="modal-header" style="background-color:blue;color:white;border-top-left-radius:5px;border-top-right-radius:5px;">
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
-        		<h4 class="modal-title">Nuevo egresado</h4>
+        		<h4 class="modal-title"><span id="tituloFormModal"></span></h4>
       		</div>
       		<div class="modal-body">
-        		<form method="POST" id="formulario-egresados">
+        		<form id="formulario-egresados" action="/egresados/create" method="POST">
         			<div class="container-fluid">
 					    
 					    <div class="col-lg-4 form-group">
@@ -85,7 +86,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="ingreso">Año Ingreso</label>
-					        	<input type="date"
+					        	<input type="number"
                            			class="form-control"
                            			name="ingreso"
                            			id="ingreso"
@@ -98,7 +99,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="egreso">Año Egreso</label>
-					        	<input type="date" class="form-control" name="egreso" id="egreso" required="required" novalidate>
+					        	<input type="number" class="form-control" name="egreso" id="egreso" required="required" novalidate>
 	                  		</div>				 
 					         
 					    </div>
@@ -106,7 +107,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="titulacion">Año Titulación</label>
-					        	<input type="date" class="form-control" name="titulacion" id="titulacion">
+					        	<input type="number" class="form-control" name="titulacion" id="titulacion">
 				        	</div>
 					         
 					    </div>
@@ -121,7 +122,7 @@
 			                            id="carrera"
 			                            data-validation="required"
 			                            data-validation-help="Escoga una alternativa.">
-			                      	<option value="">Elegir</option>
+			                      	<option value="0">Elegir</option>
 					        		<option value="1">Ejecución</option>
 					        		<option value="2">Informática</option>
 				        			<option value="3">Civil</option>
@@ -134,7 +135,7 @@
 					        <div class="form-group">
 					        	<label for="postgrado">Postgrado</label>
 					        	<select class="form-control" name="postgrado" id="postgrado">
-					        		<option value="">Ninguno</option>
+					        		<option value="0">Ninguno</option>
 					        		<option value="1">Magister</option>
 					        		<option value="2">Doctorado</option>
 					        	</select>
@@ -151,7 +152,7 @@
 			                        data-validation-help="Ingrese RUT sin digitos y con guión."
 			                        data-validation-depends-on="postgrado"
 			                        data-validation-depends-on-value="1, 2">
-			                  	<option value="">Elegir...</option>
+			                  	<option value="0">Elegir...</option>
 			                  	<option value="1">Informática</option>
 			                  	<option value="2">Negocio</option>
 			                  	<option value="3">Otros</option>
@@ -163,7 +164,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="satisfaccion">Satisfacción Carrera</label>
-					        	<input type="text" class="form-control" name="satisfaccion" id="satisfaccion">
+					        	<input placeholder=" - " type="text" class="form-control" name="satisfaccion" id="satisfaccion">
 					        </div>					 
 					 
 					    </div>
@@ -171,12 +172,12 @@
 					 
 					        <div class="form-group">
 					        	<label for="nota">Nota Carrera</label>
-					        	<select class="form-control" id="nota">
-								  	<option>1</option>
-								  	<option>2</option>
-								  	<option>3</option>
-								  	<option>4</option>
-								  	<option>5</option>
+					        	<select class="form-control" name="nota" id="nota">
+								  	<option value="1">1</option>
+								  	<option value="2">2</option>
+								  	<option value="3">3</option>
+								  	<option value="4">4</option>
+								  	<option value="5">5</option>
 								</select>
 					        </div>
 					         
@@ -202,7 +203,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="linkedin">Linkedin</label>
-					        	<input type="url" class="form-control" name="linkedin" id="linkedin">
+					        	<input placeholder=" - " type="url" class="form-control" name="linkedin" id="linkedin">
 					        </div>					 
 					 
 					    </div>
@@ -212,7 +213,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="capacitacion">Necesidad Capacitación</label>
-					        	<textarea name="capacitacion" id="capacitacion" class="form-control"></textarea>
+					        	<textarea placeholder=" - " name="capacitacion" id="capacitacion" class="form-control"></textarea>
 					        </div>					 
 					 
 					    </div>
@@ -220,8 +221,9 @@
         		</form>
       		</div>
       		<div class="modal-footer">
-        		<input href="/" class="btn btn-success" type="submit" value="Guardar" form="formulario-egresados">
-      		</div>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+		        <button type="submit" class="btn btn-success" form="formulario-egresados">Guardar</button>
+	      	</div>
     	</div>
   	</div>
 </div>
@@ -231,46 +233,58 @@
     	<div class="modal-content">
       		<div class="modal-header" style="background-color:blue;color:white;border-top-left-radius:5px;border-top-right-radius:5px;">
         		<button type="button" class="close" data-dismiss="modal">&times;</button>
-        		<h4 class="modal-title">Cristian Rojas</h4>
+        		<h4 class="modal-title"><span name="verNombre"></span></h4>
       		</div>
       		<div class="modal-body">
         		<ul>
         			<li>
-        				Nombre: Cristian Fabiano Rojas Arredondo 
+        				Nombre: <span name="verNombre"></span>
         			</li>
         			<li>
-        				Rut: 19.193.382-6
+        				Rut: <span name="verRut"></span>
         			</li>
         			<li>
-        				Año Ingreso: 2014
+        				Año Ingreso: <span name="verIngreso"></span>
         			</li>
         			<li>
-        				Año Egreso: 2019 
+        				Año Egreso: <span name="verEgreso"></span>
         			</li>
         			<li>
-        				Año Titulación: 2020
+        				Año Titulación: <span name="verTitulacion"></span>
         			</li>
         			<li>
-        				Carrera: Ingeniería Informática
+        				Carrera: <span name="verCarrera"></span>
+        			</li>
+        			<li>
+        				Postgrado: <span name="verPostgrado"></span>
+        			</li>
+        			<li>
+        				Área de postgrado: <span name="verAreaPostgrado"></span>
+        			</li>
+        			<li>
+        				Satisfaccion con la carrera: <span name="verSatisfaccion"></span>
         			</li>
         			<li>
         				Nota Carrera:
 			        	<select id="notaFix">
-						  	<option>1</option>
-						  	<option>2</option>
-						  	<option>3</option>
-						  	<option>4</option>
-						  	<option>5</option>
+						  	<option value="1">1</option>
+						  	<option value="2">2</option>
+						  	<option value="3">3</option>
+						  	<option value="4">4</option>
+						  	<option value="5">5</option>
 						</select>
         			</li>
         			<li>
-        				Linkedin: https://cl.linkedin.com/Rojass <- Ficticio
+        				Curriculum Vitae: <span name="verCV"></span>
         			</li>
         			<li>
-        				Postagrado: Doctorado
+        				Linkedin: <span name="verLinkedin"></span>
         			</li>
         			<li>
-        				Área de postgrado: Informática
+        				Necesidad de capacitacion: 
+        				<div class="container-fluid" name="verCapacitacion">
+        					<span></span>		
+        				</div>
         			</li>
         		</ul>
       		</div>

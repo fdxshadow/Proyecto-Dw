@@ -20,12 +20,13 @@
     <link rel="stylesheet" href="/styles/font-awesome.min.css">
     <link rel="stylesheet" href="/styles/fontawesome-stars.css">
     <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/menu.css">
     <link rel="stylesheet" href="/styles/metisMenu.min.css">
     <link rel="stylesheet" href="/styles/morris.css">
     <link rel="stylesheet" href="/styles/sb-admin-2.min.css">
     <link rel="stylesheet" href="/styles/sweetalert2.min.css">
     <!--STYLES END-->
-    
+
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/dependencies/jquery-3.2.1.min.js"></script>
@@ -55,6 +56,7 @@
     <script src="/js/metisMenu.min.js"></script>
     <script src="/js/sweetalert2.min.js"></script>
     <script src="/js/valida_empleos.js"></script>
+    <script src="/js/verEmpleos.js"></script>
     <!--SCRIPTS END-->
 
 
@@ -66,18 +68,31 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="fondoMenu">
 
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
+        <nav class="navbar navbar-default navbar-static-top fondoMenu" role="navigation" style="margin-bottom: 0;">
+
+            <div class="row" style="text-align:center">
+                <div class="col-md-2 col-lg-3 hidden-sm hidden-xs">
+                    <a class="navbar-brand" href="#">
+                        <img alt="Brand" src="/images/logoUv.png" height="80">
+                    </a>
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-12">
+                    <h1 style="color:white">Sistema de egresados - Universidad de Valparaíso</h1>
+                </div>
+
+                <div class="col-md-2 col-xs-12 col-sm-12">
+                </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+
             <div class="container-fluid">
-                <div class="navbar-header">
+                <div class="navbar-header fondoMenu">
                     <div class="row">
-                        <div class="col-md-3 hidden-sm hidden-xs">
-                            <a class="navbar-brand" href="#">
-        <img alt="Brand" src="/images/logo.jpeg" height="80">
-      </a>
-                        </div>
-
                         <div class="navbar-text col-md-8 col-sm-12 col-xs-12">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-nav">
                     <span class="sr-only">Toggle navigation</span>
@@ -85,18 +100,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                            <h1 align="center">Sistema Egresados</h1>
+                            <!--<h1 align="center" style="color:white">Sistema Egresados - Universidad de Valparaíso</h1>-->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="navbar-default sidebar" role="navigation" style="margin-top: 0;">
                 <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
+                    <ul class="nav itemMenu" id="side-menu">
                         <li>
-                            <a href="/inicioEmpleos"><i class="fa fa-universal-access fa-fw"></i>Empleos</a>
+                            <a href="/"><i class="fa fa-home fa-fw"></i>Inicio</a>
                         </li>
-
+                        <li style="color:white">
+                            <a href="/inicioEmpleos"><i class="fa fa-briefcase fa-fw"></i>Empleos</a>
+                        </li>
                         <li>
                             <a href="/egresados"><i class="fa fa-users fa-fw"></i>Egresados</a>
                         </li>
@@ -120,7 +137,4 @@
     </div>
 </body>
 
-
 </html>
-
-

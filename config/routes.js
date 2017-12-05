@@ -1,10 +1,7 @@
 
 module.exports.routes = {
 
-  '/': {
-    view: 'homepage'
-  },
-  
+
   '/Empresa': 'CompanyController.mostrar',
   'post /Agregar': 'CompanyController.create',
   'get /Eliminar/:id': 'CompanyController.delete',
@@ -12,33 +9,31 @@ module.exports.routes = {
   'get /Ver/:id': 'CompanyController.view',
   'post /Actualizar': 'CompanyController.update',
 
-//MODULO EMPLEOS
+  //MODULO EMPLEOS
 
   '/inicioEmpleos': 'JobController.inicio',
   'post /getEgresados': 'JobController.getEgresados',
   'post /getEgresadoSelect': 'JobController.getEgresadoSelect',
   'post /getRutSupervisor': 'SupervisorController.buscarRut',
-  'post /addEmpleo': 'JobController.addEmpleo',
-  '/listaEmpleos':'EmpleoController.inicio',
+  'post /addEmpleo': 'JobController.create',
+  
   'post /getSupervisores': 'SupervisorController.getSupervisores',
-  'post /addSup': 'SupervisorController.addSupervisor',
   'post /buscarRut': 'SupervisorController.buscarRut',
   'post /addFormSuperv': 'SupervisorController.addSupervisor',
+  'post /getEmpleos': 'EmpleoController.getEmpleos',
+  '/listaEmpleos': 'EmpleoController.inicio',
+  'post /empleos/create' : 'JobController.create',
+  '/addSupervisor': { view: 'addSupervisor'},
+  '/addEmpleo': { view: 'addEmpleo'},
 
-  '/addSupervisor': {
-    view: 'addSupervisor'
-  },
+  //FIN MODULO EMPLEOS
 
-  '/addEmpleo': {
-    view: 'addEmpleo'
-  },
-
-
-//FIN MODULO EMPLEOS
-
-  '/egresados': {
-    view: 'egresados'
-  },
+  '/': { view: 'homepage' },
+  '/egresados':'EgresadoController.showList',
+  '/egresados/create':'EgresadoController.createEgresado',
+  '/egresados/readById/:id':'EgresadoController.readEgresadoById',
+  '/egresados/update/:id':'EgresadoController.updateEgresado',
+  '/egresados/delete/:id':'EgresadoController.deleteEgresado'
 
 
 };

@@ -1,4 +1,3 @@
-
 .br-theme-fontawesome-stars .br-widget {
   height: 28px;
   white-space: nowrap;
@@ -39,4 +38,7 @@
     content: '\f005';
     color: black;
   }
+}
+#notaFix ~ .br-widget, li .br-wrapper{
+  display: inline;
 }

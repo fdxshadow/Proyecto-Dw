@@ -13,6 +13,12 @@
                     <span class="icon-bar"></span>
                 </button>
         <!-- Collect the nav links, forms, and other content for toggling -->
+                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>        
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li role="presentation"><a href="/inicioEmpleos">Agregar empleo</a></li>
@@ -24,19 +30,6 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-
-<!--<div class="col-md-12">
-  <div class="panel panel-primary">
-
-    <div class="panel-heading" style="text-align:center">FORMULARIO INGRESO SUPERVISOR</div>
-    <div class="panel-body">
-
-    </div>
-  </div>
-
-</div>-->
-
-
 
 <br/>
 
@@ -61,7 +54,7 @@
                     <ol>
                         <div class="input-group" style="width:100%">
                             <span class="input-group-addon addonSup">Nombre</span>
-                            <input onkeypress="return soloLetras(event)" onchange="validarNombreSup()" type="text" class="form-control" id="nombreSup"
+                            <input onkeypress="return soloLetras(event)" onchange="validarNombreSup()" maxlength="20" type="text" class="form-control" id="nombreSup"
                                 name="nombreSup" placeholder="Ingrese su nombre" required>
                         </div>
                         <i style="color:red" id="errorNomSup" class="control-label"></i>
@@ -70,7 +63,7 @@
                         <br>
                         <div class="input-group" style="width:100%">
                             <span class="input-group-addon addonSup" id="basic-addon1">RUT</span>
-                            <input placeholder="Ingrese su rut" onkeypress="return digitosRut(event);" class="form-control" id="rutSup" name="rutSup" onchange="validarRut()" required>
+                            <input placeholder="Ingrese su rut" onkeypress="return digitosRut(event);" maxlength="10" class="form-control" id="rutSup" name="rutSup" onchange="validarRut()" required>
                         </div>
                         <i style="color:red" id="errorRutSup" class="control-label"></i>
                         <br/>
@@ -80,20 +73,19 @@
                         <br>
                         <div class="input-group" style="width:100%">
                             <span class="input-group-addon addonSup" id="basic-addon1">Correo</span>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="Username" aria-describedby="basic-addon1"
+                            <input type="email" class="form-control" id="correo" name="correo" maxlength="40" placeholder="Username" aria-describedby="basic-addon1"
                                 required>
                         </div>
                         <br>
                         <br>
                         <div class="input-group" style="width:100%">
                             <span class="input-group-addon addonSup" id="basic-addon1">Telefono</span>
-                            <input onkeypress="return onlyNumbers(event);" id="telefono" name="telefono" class="form-control" placeholder="Username"
+                            <input onkeypress="return onlyNumbers(event);" id="telefono" maxlength="9" name="telefono" class="form-control" placeholder="Username"
                                 aria-describedby="basic-addon1" required>
                         </div>
 
                         <br>
                         <br>
-
 
                         <div class="form-group" style="text-align:center">
                             <strong for="nota">Nota Supervisor</strong>
@@ -125,135 +117,6 @@
                     <!--<input name="mysubmit" type="submit" value="Enviar" /></fieldset>-->
             </form>
 
-            <!--<form id="fo3" action="/test" method="post" name="fo3">
-                <fieldset>
-
-                    <div class="input-group" style="width:100%">
-                        <span class="input-group-addon addonSup">Nombre</span>
-                        <input onkeypress="return soloLetras(event)" onchange="validarNombreSup()" type="text" class="form-control" id="nombreSup"
-                            name="nombreSup" placeholder="Ingrese su nombre" required>
-                    </div>
-                    <i style="color:red" id="errorNomSup" class="control-label"></i>
-
-                    <br>
-                    <br>
-                    <div class="input-group" style="width:100%">
-                        <span class="input-group-addon addonSup" id="basic-addon1">RUT</span>
-                        <input onkeypress="return digitosRut(event);" class="form-control" id="rutSup" name="rutSup" onchange="validarRut()" required>
-                    </div>
-                    <i style="color:red" id="errorRutSup" class="control-label"></i>
-                    <br/>
-                    <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
-
-                    <br>
-                    <br>
-                    <div class="input-group" style="width:100%">
-                        <span class="input-group-addon addonSup" id="basic-addon1">Correo</span>
-                        <input type="email" class="form-control" id="correo" name="correo" placeholder="Username" aria-describedby="basic-addon1"
-                            required>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="input-group" style="width:100%">
-                        <span class="input-group-addon addonSup" id="basic-addon1">Telefono</span>
-                        <input onkeypress="return onlyNumbers(event);" id="telefono" name="telefono" class="form-control" placeholder="Username"
-                            aria-describedby="basic-addon1" required>
-                    </div>
-
-                    <br>
-                    <br>
-
-
-                    <div class="form-group" style="text-align:center">
-                        <strong for="nota">Nota Supervisor</strong>
-                        <select class="form-control" id="nota" name="nota">
-								  	<option value="1">1</option>
-								  	<option value="2">2</option>
-								  	<option value="3">3</option>
-								  	<option value="4">4</option>
-								  	<option value="5">5</option>
-								</select>
-                    </div>
-
-                    <br/>
-                    
-
-                    <div class="form-group" style="text-align:center">
-
-                        <div class="col-md-12">
-
-                            <button name="mysubmit" type="submit" class="btn btn-success">Aceptar
-                <i class="fa fa-check" aria-hidden="true"></i> 
-                            </button>
-
-
-                            <button type="reset" class="btn btn-primary">
-                <i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar
-              </button>
-                        </div>
-                    </div>
-                </fieldset>
-
-
-            </form>-->
-
-
-
-
-
-
-            <!--<form id="formulario" onsubmit="return validarFormSup()" action="/test" method="POST">
-
-                <div class="input-group" style="width:100%">
-                    <span class="input-group-addon addonSup">Nombre</span>
-                    <input onkeypress="return soloLetras(event)" onchange="validarNombreSup()" type="text" class="form-control" id="nombreSup"
-                        name="nombreSup" placeholder="Ingrese su nombre" required>
-                </div>
-                <i style="color:red" id="errorNomSup" class="control-label"></i>
-
-                <br>
-                <br>
-                <div class="input-group" style="width:100%">
-                    <span class="input-group-addon addonSup" id="basic-addon1">RUT</span>
-                    <input onkeypress="return digitosRut(event);" class="form-control" id="rutSup" name="rutSup" onchange="validarRut()" required>
-                </div>
-                <i style="color:red" id="errorRutSup" class="control-label"></i>
-                <br/>
-                <i class="textoNaranjoInfo"><i class="fa fa-info-circle"></i> (Ejemplo: 18234542-2)</i>
-
-                <br>
-                <br>
-                <div class="input-group" style="width:100%">
-                    <span class="input-group-addon addonSup" id="basic-addon1">Correo</span>
-                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Username" aria-describedby="basic-addon1"
-                        required>
-                </div>
-                <br>
-                <br>
-                <div class="input-group" style="width:100%">
-                    <span class="input-group-addon addonSup" id="basic-addon1">Telefono</span>
-                    <input onkeypress="return onlyNumbers(event);" id="telefono" name="telefono" class="form-control" placeholder="Username"
-                        aria-describedby="basic-addon1" required>
-                </div>
-
-                <br/>
-                <div class="form-group" style="text-align:center">
-                    <div class="col-md-12">
-
-                        <button type="submit" class="btn btn-success" form="formulario">Aceptar
-                <i class="fa fa-check" aria-hidden="true"></i>
-              </button>
-
-                        <button type="reset" class="btn btn-primary">
-                <i class="fa fa-trash-o" aria-hidden="true"></i> Limpiar
-              </button>
-                    </div>
-                </div>
-
-                <br/>
-
-            </form>-->
-
         </div>
     </div>
 </div>
@@ -271,7 +134,6 @@
         $('#form, #fat, #fo3').submit(function () {
             // Enviamos el formulario usando AJAX
             var ivette = validarFormSup();
-            console.log("IVETTE", ivette);
             if (ivette) {
                 $.ajax({
                     type: 'POST',

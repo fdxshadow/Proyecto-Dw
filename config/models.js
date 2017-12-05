@@ -3,5 +3,6 @@
 module.exports.models = {
 
   connection: 'someMysqlServer',
-  migrate: 'alter'
+  migrate: 'safe'
+  
 };
