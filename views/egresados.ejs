@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-primary" style="margin-top:15px;">
   	<div class="panel-heading">Lista de egresados</div>
   	<div class="panel-body">
-  		<button id="btn-agregar" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="formModal(-1)"">Agregar egresado</button>	
+  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="formModal(-1)"">Agregar egresado</button>	
   		<table class="table table-striped">
       		<thead>
         		<tr>
@@ -23,7 +23,7 @@
 									<i class="fa fa-search fa-lg"  data-toggle="modal" data-target="#detalle" onclick="ver(<%=egresado.id_egresado%>)"></i>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<i id="btn-modificar" class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal" onclick="formModal(<%=egresado.id_egresado%>)"></i>
+									<i class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal" onclick="formModal(<%=egresado.id_egresado%>)"></i>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<i class="fa fa-trash-o fa-lg" onclick="eliminar(<%=egresado.id_egresado%>)"></i>
