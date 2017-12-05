@@ -1,3 +1,5 @@
+let valida = require('../services/valida.service');
+
 let createQuery = "insert into egresado (nombre,apellido,rut,año_ingreso,año_egreso,año_titulacion,carrera,postgrado,area_postgrado,sat_carrera,nota_carrera,cv,linkedin,nec_cap) values (",
     readQuery = "select * from egresado;",
     readByIdQuery = "select * from egresado where id_egresado = ",
@@ -15,6 +17,11 @@ module.exports = {
         });
     },
     createEgresado:function (req,res) {
+        let status = valida.validaRut(req.body.rut);
+        if (status.value !== 1)
+            res.serverError(status.mensaje);
+        if (req.body.egreso<req.body.ingreso)
+            res.serverError("El año de egreso no puede ser menor al año de ingreso");
         req.body.nombre = "\"" + req.body.nombre + "\"";
         req.body.apellido = "\"" + req.body.apellido + "\"";
         req.body.rut = "\"" + req.body.rut + "\"";
@@ -58,6 +65,11 @@ module.exports = {
         });
     },
     updateEgresado:function(req,res){
+        let status = valida.validaRut(req.body.rut);
+        if (status.value !== 1)
+            res.serverError(status.mensaje);
+        if (req.body.egreso<req.body.ingreso)
+            res.serverError("El año de egreso no puede ser menor al año de ingreso");
         req.body.nombre = "\"" + req.body.nombre + "\"";
         req.body.apellido = "\"" + req.body.apellido + "\"";
         req.body.rut = "\"" + req.body.rut + "\"";
