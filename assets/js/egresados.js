@@ -77,15 +77,12 @@ function eliminar(id){
 }
 function ver(id){
   $.get("/egresados/readById/"+id, function(data) {
-    data[0].año_ingreso = (new Date(data[0].año_ingreso)).toLocaleDateString();
-    data[0].año_egreso = (new Date(data[0].año_egreso)).toLocaleDateString();
-    data[0].año_titulacion = data[0].año_titulacion!==null?(new Date(data[0].año_titulacion)).toLocaleDateString():" -";
-    data[0].postgrado = data[0].postgrado!==null?data[0].postgrado:" -";
-    data[0].area_postgrado = data[0].area_postgrado!==null?data[0].area_postgrado:" -";
-    data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:" -";
-    data[0].cv = data[0].cv!==null?data[0].cv:" -";
-    data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:" -";
-    data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:" -";
+    data[0].postgrado = data[0].postgrado!==null?data[0].postgrado:"";
+    data[0].area_postgrado = data[0].area_postgrado!==null?data[0].area_postgrado:"";
+    data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:"";
+    data[0].cv = data[0].cv!==null?data[0].cv:"";
+    data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:"";
+    data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:"";
     $("span[name='verNombre']").each(function(){
       $(this).html(data[0].nombre + " " + data[0].apellido);
     });
@@ -109,32 +106,32 @@ function formModal(id){
   if(id===-1){
     $("#tituloFormModal").html("Nuevo egresado");
     $("#formulario-egresados").trigger("reset");
-  }else
+    $("#formulario-egresados").attr("action","/egresados/create");
+  }else{
     $.get("/egresados/readById/"+id, function(data) {
+      $("#formulario-egresados").attr("action","/egresados/update/"+id);
       $("#tituloFormModal").html(data[0].nombre + " " + data[0].apellido);
-      data[0].año_ingreso = (new Date(data[0].año_ingreso)).toLocaleDateString();
-      data[0].año_egreso = (new Date(data[0].año_egreso)).toLocaleDateString();
-      data[0].año_titulacion = data[0].año_titulacion!==null?(new Date(data[0].año_titulacion)).toLocaleDateString():" -";
-      data[0].carrera = data[0].carrera==="Ejecucion"?1:data[0].carrera==="Informatica"?2:3;
-      data[0].postgrado = data[0].postgrado==="Magister"?1:data[0].postgrado==="Doctorado"?2:0;
-      data[0].area_postgrado = data[0].area_postgrado!==null?data[0].area_postgrado:" -";
-      data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:" -";
-      data[0].cv = data[0].cv!==null?data[0].cv:" -";
-      data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:" -";
-      data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:" -";
+      data[0].carrera = data[0].carrera==="ejecucion"?1:data[0].carrera==="informatica"?2:3;
+      data[0].postgrado = data[0].postgrado==="magister"?1:data[0].postgrado==="doctorado"?2:0;
+      data[0].area_postgrado = data[0].area_postgrado==="Informatica"?1:data[0].area_postgrado==="Negocio"?2:data[0].area_postgrado==="Otros"?3:0;
+      data[0].sat_carrera = data[0].sat_carrera!==null?data[0].sat_carrera:"";
+      data[0].cv = data[0].cv!==null?data[0].cv:"";
+      data[0].linkedin = data[0].linkedin!==null?data[0].linkedin:"";
+      data[0].nec_cap = data[0].nec_cap!==null?data[0].nec_cap:"";
       $("#nombre").val(data[0].nombre);
       $("#apellido").val(data[0].apellido);
       $("#rut").val(data[0].rut);
-      //$("#ingreso").val(data[0].año_ingreso);
-      //$("#egreso").val(data[0].año_egreso);
-      //$("#titulacion").val(data[0].año_titulacion);
+      $("#ingreso").val(data[0].año_ingreso);
+      $("#egreso").val(data[0].año_egreso);
+      $("#titulacion").val(data[0].año_titulacion);
       $("#carrera").val(data[0].carrera);
       $("#postgrado").val(data[0].postgrado);
-      //$("#a_postgrado").val(data[0].area_postgrado);
+      $("#a_postgrado").val(data[0].area_postgrado);
       $("#satisfaccion").val(data[0].sat_carrera);
       $('#nota').barrating('set',data[0].nota_carrera);
-      ////$("#cv").val("chi lavolaita.pdf");
-      //$("#linkedin").val(data[0].linkedin);
+      $("#cv").val(null);
+      $("#linkedin").val(data[0].linkedin);
       $('#capacitacion').val(data[0].nec_cap);
     });
+  }
 }
