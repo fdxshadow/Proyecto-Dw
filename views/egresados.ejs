@@ -1,7 +1,7 @@
 <div class="panel panel-default panel-primary" style="margin-top:15px;">
   	<div class="panel-heading">Lista de egresados</div>
   	<div class="panel-body">
-  		<button class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="formModal(-1)"">Agregar egresado</button>	
+  		<button id="btn-agregar" class="btn btn-success" data-toggle="modal" data-target="#myModal" onclick="formModal(-1)"">Agregar egresado</button>	
   		<table class="table table-striped">
       		<thead>
         		<tr>
@@ -23,7 +23,7 @@
 									<i class="fa fa-search fa-lg"  data-toggle="modal" data-target="#detalle" onclick="ver(<%=egresado.id_egresado%>)"></i>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<i class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal" onclick="formModal(<%=egresado.id_egresado%>)"></i>
+									<i id="btn-modificar" class="fa fa-pencil fa-lg" data-toggle="modal" data-target="#myModal" onclick="formModal(<%=egresado.id_egresado%>)"></i>
 								</div>
 								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 									<i class="fa fa-trash-o fa-lg" onclick="eliminar(<%=egresado.id_egresado%>)"></i>
@@ -86,7 +86,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="ingreso">Año Ingreso</label>
-					        	<input type="date"
+					        	<input type="number"
                            			class="form-control"
                            			name="ingreso"
                            			id="ingreso"
@@ -99,7 +99,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="egreso">Año Egreso</label>
-					        	<input type="date" class="form-control" name="egreso" id="egreso" required="required" novalidate>
+					        	<input type="number" class="form-control" name="egreso" id="egreso" required="required" novalidate>
 	                  		</div>				 
 					         
 					    </div>
@@ -107,7 +107,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="titulacion">Año Titulación</label>
-					        	<input type="date" class="form-control" name="titulacion" id="titulacion">
+					        	<input type="number" class="form-control" name="titulacion" id="titulacion">
 				        	</div>
 					         
 					    </div>
@@ -164,7 +164,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="satisfaccion">Satisfacción Carrera</label>
-					        	<input type="text" class="form-control" name="satisfaccion" id="satisfaccion">
+					        	<input placeholder=" - " type="text" class="form-control" name="satisfaccion" id="satisfaccion">
 					        </div>					 
 					 
 					    </div>
@@ -203,7 +203,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="linkedin">Linkedin</label>
-					        	<input type="url" class="form-control" name="linkedin" id="linkedin">
+					        	<input placeholder=" - " type="url" class="form-control" name="linkedin" id="linkedin">
 					        </div>					 
 					 
 					    </div>
@@ -213,7 +213,7 @@
 					 
 					        <div class="form-group">
 					        	<label for="capacitacion">Necesidad Capacitación</label>
-					        	<textarea name="capacitacion" id="capacitacion" class="form-control"></textarea>
+					        	<textarea placeholder=" - " name="capacitacion" id="capacitacion" class="form-control"></textarea>
 					        </div>					 
 					 
 					    </div>
