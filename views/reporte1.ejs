@@ -1,0 +1,24 @@
+<div class="panel panel-default panel-primary" style="margin-top:15px;">
+  	<div class="panel-heading">Reporte 1: Cantidad de Egresados en relacion rubro y especialidad</div>
+  	<div class="panel-body">
+  		<table class="table table-striped">
+      		<thead>
+        		<tr>
+          			<th>Rubro</th>
+		          	<th>Especialidad</th>
+		          	<th>Cantidad</th>
+		        </tr>
+      		</thead>
+      		<tbody>
+      			<% _.each(filas, function(fila) { %>
+      				<tr>
+						<td><%= fila.rubro %></td>
+						<td><%= fila.especialidad %></td>
+						<td><%= fila.cantidad %></td>
+					   </tr>
+				<% }) %>
+			</tbody>
+    	</table>
+  	</div>
+</div>
+
