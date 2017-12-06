@@ -26,7 +26,8 @@ module.exports = {
     },
     rut:{
       type: 'string',
-      required: true
+      required: true,
+      unique:true
     },
     rubro:{
       type: 'string',
