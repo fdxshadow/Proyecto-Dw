@@ -33,7 +33,13 @@ module.exports.routes = {
   '/egresados/create':'EgresadoController.createEgresado',
   '/egresados/readById/:id':'EgresadoController.readEgresadoById',
   '/egresados/update/:id':'EgresadoController.updateEgresado',
-  '/egresados/delete/:id':'EgresadoController.deleteEgresado'
+  '/egresados/delete/:id':'EgresadoController.deleteEgresado',
 
+//MODULO REPORTE
+
+  '/graficoEmpEgr': { view:'graficoEmpleoEgresado' },
+
+
+//MODULO GRÁFICO
 
 };
