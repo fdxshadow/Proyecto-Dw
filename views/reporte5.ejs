@@ -1,22 +1,22 @@
 <div class="panel panel-default panel-primary" style="margin-top:15px;">
     <button class="btn btn-success" onclick="alert('Hola'1)">Descargar PDF</button>
-  	<div class="panel-heading">Reporte 1: Cantidad de Egresados en relacion rubro y especialidad</div>
+  	<div class="panel-heading">Reporte 5: Egresado con su empleador actual</div>
 
   	<div class="panel-body">
   		<table class="table table-striped">
       		<thead>
         		<tr>
-          			<th>Rubro</th>
-		          	<th>Especialidad</th>
-		          	<th>Cantidad</th>
+          			<th>Nombre</th>
+		          	<th>Empresa</th>
+		          	<th>Rubro</th>
 		        </tr>
       		</thead>
       		<tbody>
       			<% _.each(filas, function(fila) { %>
       				<tr>
-						<td><%= fila.rubro %></td>
-						<td><%= fila.especialidad %></td>
-						<td><%= fila.cantidad %></td>
+						<td><%= fila.egresadoNombre %> <%= fila.egresadoApellido %></td>
+						<td><%= fila.empresaNombre %></td>
+						<td><%= fila.empresaRubro %></td>
 					   </tr>
 				<% }) %>
 			</tbody>

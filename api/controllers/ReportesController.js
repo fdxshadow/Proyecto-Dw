@@ -1,6 +1,6 @@
 let valida = require('../services/valida.service');
 
-var query = [
+var filasReporte1 = [
     {
         'rubro' : 'enseñanza',
         'especialidad': 'software',
@@ -43,6 +43,26 @@ var query = [
     }
 ];
 
+var filasReporte2 = [
+    {
+        'egresadoNombre' : "Juan",
+        'egresadoApellido': "Garcia",
+        "empresaNombre": "empresa1",
+        "empresaRubro": "rubro1"
+    },
+    {
+        'egresadoNombre' : "Diego",
+        'egresadoApellido': "Fernandez",
+        "empresaNombre": "empresa2",
+        "empresaRubro": "rubro2"
+    },
+    {
+        'egresadoNombre' : "Felipe",
+        'egresadoApellido': "Soto",
+        "empresaNombre": "empresa3",
+        "empresaRubro": "rubro4"
+    }
+];
 
 let createQuery = "insert into egresado (nombre,apellido,rut,año_ingreso,año_egreso,año_titulacion,carrera,postgrado,area_postgrado,sat_carrera,nota_carrera,cv,linkedin,nec_cap) values (",
     readQuery = "select * from egresado;",
@@ -56,7 +76,15 @@ module.exports = {
         Egresado.query(readQuery,[],function(err,egresados){
             if(err) return res.serverError(err);
             return res.view('reporte1',{
-                filas: query
+                filas: filasReporte1
+            });
+        });
+    },
+    reporte5:function (req,res) {
+        Egresado.query(readQuery,[],function(err,egresados){
+            if(err) return res.serverError(err);
+            return res.view('reporte5',{
+                filas: filasReporte2
             });
         });
     },
