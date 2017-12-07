@@ -23,60 +23,6 @@ function reportBuild(headers, data, columns)
 }
 
 module.exports = {
-	
-    /*inicio: function (req, res) {
-
-        var queryEgresado = "SELECT * FROM egresado";
-        var queryEmpresa = "SELECT * FROM empresa";
-        var queryEmpleo = "SELECT * FROM empleo";
-        //"SELECT * FROM empleo where id_egresado ='" + req.id_egresado + "'";
-        //here id_egresado ='" + req.id_egresado + "'";
-
-        Job.query(queryEgresado, [], function (err, resp) {
-            if (err) { return res.serverError(err); }
-
-            var egresados = [];
-
-
-            for (var x = 0; x < resp.length; x++) {
-                cont = x + 1;
-                var egresado = {
-                    'cont': cont,
-                    'id_egresado': resp[x].id_egresado,
-                    'nombreRut': resp[x].nombre + ' ' + resp[x].apellido, //+ ' - ' + resp[x].rut + ' - ' + resp[x].carrera
-                    'Rut': resp[x].rut,
-                    'carrera': resp[x].carrera
-                    //'contador': resp[x].count
-                }
-                egresados.push(egresado);
-            };
-
-            egresadosGlobal = resp;
-
-            Job.query(queryEmpresa, [], function (err, resp) {
-                if (err) { return res.serverError(err); }
-                var empresas = resp;
-                queryEmpleo = "SELECT * FROM empleo"; //where id_egresado ='" + 1 + "'";   
-                Job.query(queryEmpleo, [], function (err, resp) {
-                    if (err) { return res.serverError(err); }
-                    var empleos = [];
-
-                    Job.query('SELECT * FROM supervisor ', [], function (err, resp) {
-                        if (err) { return res.serverError(err); }
-
-                        return res.view('listaEmpleos', {
-                            egresados: egresados,
-                            empresas: empresas,
-                            //empleos: empleos,
-                            supervisores: resp
-                        });
-
-                    });
-                });
-            });
-        });
-    },
-	*/
 
     view: function (req, res)
 	{
