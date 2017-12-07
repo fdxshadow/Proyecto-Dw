@@ -37,11 +37,12 @@ module.exports.routes = {
 
 //MODULO REPORTE
 
-  '/graficoEmpEgr': { view:'graficoEmpleoEgresado' },
+
   '/reporte1':'ReportesController.reporte1',
   '/reporte5':'ReportesController.reporte5',
 
 //MODULO GRÁFICO
-
+  '/graficoEmpEgr': { view:'graficoEmpleoEgresado' },
+  '/getDatoGrafico': 'GraficosController.trabajo',
 
 };

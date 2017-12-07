@@ -1,13 +1,21 @@
-var ctx = document.getElementById("grafico1");
-console.log(ctx);
-var myChart = new Chart(ctx, {
+$(document).ready(function () {
+
+
+
+    io.socket.get('/getDatoGrafico',function (Grafico) {
+
+
+        console.log(Grafico.cont);
+
+    var ctx = document.getElementById("grafico1");
+    var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
       labels: ["Con empleo", "Sin empleo"],
       datasets: [{
         label: "Population (millions)",
-        backgroundColor: ["#3e95cd", "#8e5ea2"],
-        data: [10,30]
+        backgroundColor: ["#0000ff", "#ff0000"],
+        data: [Grafico.cont,Grafico.sint]
       }]
     },
     options: {
@@ -16,7 +24,21 @@ var myChart = new Chart(ctx, {
         text: 'Comparacion de egresados con empleos'
       }
     }
+    });
 });
+
+
+
+
+
+
+
+
+
+});
+
+
+
 
  
 // usar esa query select count(*) from egresado where id_egresado = any (select id_egresado from empleo);
