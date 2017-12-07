@@ -45,4 +45,6 @@ module.exports.routes = {
   '/graficoEmpEgr': { view:'graficoEmpleoEgresado' },
   '/getDatoGrafico': 'GraficosController.trabajo',
 
+  '/reportes/:id' : 'ReportesController.view'
+  
 };
