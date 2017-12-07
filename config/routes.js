@@ -16,7 +16,7 @@ module.exports.routes = {
   'post /getEgresadoSelect': 'JobController.getEgresadoSelect',
   'post /getRutSupervisor': 'SupervisorController.buscarRut',
   'post /addEmpleo': 'JobController.create',
-  
+
   'post /getSupervisores': 'SupervisorController.getSupervisores',
   'post /buscarRut': 'SupervisorController.buscarRut',
   'post /addFormSuperv': 'SupervisorController.addSupervisor',
@@ -34,6 +34,16 @@ module.exports.routes = {
   '/egresados/readById/:id':'EgresadoController.readEgresadoById',
   '/egresados/update/:id':'EgresadoController.updateEgresado',
   '/egresados/delete/:id':'EgresadoController.deleteEgresado',
+
+//MODULO REPORTE
+
+
+  '/reporte1':'ReportesController.reporte1',
+  '/reporte5':'ReportesController.reporte5',
+
+//MODULO GRÁFICO
+  '/graficoEmpEgr': { view:'graficoEmpleoEgresado' },
+  '/getDatoGrafico': 'GraficosController.trabajo',
 
   '/reportes/:id' : 'ReportesController.view'
   
